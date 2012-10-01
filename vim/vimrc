@@ -26,8 +26,10 @@ syntax enable
 
 " Color scheme - dark
 " Solarized Settings
-" set background=light
-colorscheme Tomorrow-Night-Bright
+set background=dark
+"colorscheme Tomorrow-Night-Bright
+"colorscheme solarized
+colorscheme tomorrow-night-bright
 set t_Co=256                     " Force the use of 16 colors
 
 
