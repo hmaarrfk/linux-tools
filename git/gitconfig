@@ -1,0 +1,35 @@
+[user]
+	email = mark.harfouche@gmail.com
+	name = Mark Harfouche
+
+[color]
+    ui = auto
+
+[alias]
+    br = branch
+    bra = branch -a
+    ci = commit
+    cia = commit -a
+    ciam = commit -a -m
+    co = checkout
+    cl = clone
+    ps = push
+    df = diff -w
+    rb = rebase
+    st = status
+    sb = show-branch
+    unstage = reset HEAD
+
+[branch]
+    autosetupmerge = true
+
+[psuh]
+    default = upstream
+
+[mergetool "vimdiff3"]
+    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "gvimdiff3"]
+    cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[merge]
+    tool = vimdiff3
+

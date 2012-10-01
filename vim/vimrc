@@ -15,7 +15,9 @@ set nocompatible
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
-filetype plugin indent on
+filetype plugin on
+filetype indent on
+filetype on
 " }}}
 
 
@@ -24,8 +26,8 @@ syntax enable
 
 " Color scheme - dark
 " Solarized Settings
-set background=light
-colorscheme wombat
+" set background=light
+colorscheme Tomorrow-Night-Bright
 set t_Co=256                     " Force the use of 16 colors
 
 
@@ -39,6 +41,7 @@ set guioptions-=LlRrb
 
 
 " Misc
+set cursorline        " highlight the current cursor line
 let is_bash=1
 set autoread          "auto-relead modified files (with no local changes)
 set undolevels=65536  " lots of undo (default 1000)
@@ -74,6 +77,7 @@ set autoindent     " automatic indentation
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
 set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
 set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
+set softtabstop=4  " default 
 set expandtab      " force a \t to be 2 spaces when I insert it
 set textwidth=0    " no hard wrapping by default
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -124,6 +128,8 @@ noremap <c-down>   <c-w>J
 " with linewrap, move within a line if the line has warpped
 nnoremap j gj
 nnoremap k gk
+nnoremap ; :
+vnoremap ; :
 
 " Indent with tab (un-indent with ctrl+space)
 nnoremap <tab> >>
@@ -219,13 +225,13 @@ noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 " Filetype tabs, folding, wrapping
 
 " Python -- whitespace sensitive
-autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 " Latex -- 2-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80
+autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80
 
 " Vimrc -- fold with markers
-autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal    foldmethod=marker
 
 " Crontab -- save a backup
 autocmd FileType crontab setlocal backupcopy=yes
@@ -331,7 +337,8 @@ let g:syntastic_quiet_warnings=1
 " --> see bundle/sbell/syntax/tex.vim
 
 " Disable the <++>
-let g:Imap_UsePlaceHolders = 0
+" Actually enable it 
+let g:Imap_UsePlaceHolders = 1
 
 " Treat \ and : like a word character
 " Note: if you write your \label's as \label{fig:something}, then if you
@@ -367,7 +374,7 @@ let g:Tex_ImageDir='./figs'
 
 " Use PDF instead of DVI by default
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='rubber --pdf $*'
+let g:Tex_CompileRule_pdf='make'
 if has('unix') && system("uname") == "Darwin\n"  "(mac)
     let g:Tex_ViewRule_pdf='open $*.pdf'
 else
