@@ -1,0 +1,377 @@
+" VIMRC
+"
+" Read the various sections to see all the command mappings
+" Many (but not all) of the plugs have mini-documentation
+" where they are configured.
+
+
+
+
+
+"Must be first since this sets some options as a side effect
+set nocompatible
+
+" Pathogen : package manager {{{
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+" }}}
+
+
+" Enable syntax highlight
+syntax enable
+
+" Color scheme - dark
+" Solarized Settings
+set background=light
+colorscheme wombat
+set t_Co=256                     " Force the use of 16 colors
+
+
+" Font and size -- set one that works with Powerline
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+
+
+" Remove those pesky scrollbars from the gui
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+
+
+" Misc
+let is_bash=1
+set autoread          "auto-relead modified files (with no local changes)
+set undolevels=65536  " lots of undo (default 1000)
+set history=1024      " lost of history (default 20)
+set clipboard=unnamedplus " shared system clipboard.
+set mouse=a           " enable mouse
+set foldmethod=syntax "fold using syntax by default
+set foldminlines=4    " require a medium size to fold
+set foldnestmax=3     " max 3 fold levels for syntax/indent folding
+set hidden            " allo un-saved buffers in background
+set lazyredraw        "no redraws in macros
+set confirm           "dialog when :q, :w, :x, ;wq fails
+set title             " change terminal title
+set nostartofline     "don't move cursor when switching buffers/fiels
+set nobackup          " that's what git is for
+set ttyfast           "smoother changes
+
+" Appearance
+set number            " enable line numbers
+set scrolloff=3       "keep 3 lines below and above the cursor
+set linebreak         "show warp at word boundaries
+set showbreak=\ ↪\    " preview wrap with ↪
+
+" Auto completion
+set wildmenu               "completion with menu
+set wildmode=list:longest  " list instead of fill in options
+set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git
+set suffixes=~,.o,.d,.obj,.class,.bak,.swp
+set completeopt=menu,preview " Completion with a menu
+
+" Indentation -- width of 4 spaces
+set autoindent     " automatic indentation
+set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
+set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
+set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
+set expandtab      " force a \t to be 2 spaces when I insert it
+set textwidth=0    " no hard wrapping by default
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+
+" Better search
+set incsearch      " incremental search
+set ignorecase     " ignore case in search
+set smartcase      " override ignorecase if uppercase is used in search string
+set hlsearch       " enable search highlighting (change to nohlsearch to disable)
+                   " clear highlight with :noh
+
+" Allow to navigate with tags
+" set tagstack
+" set tags=./tags
+
+" Show more thigns
+set showmode       " show which mode we are in
+set showcmd        " show state of keyboard input
+set showmatch      " show brace match
+set matchtime=2    " faster brace match
+set report=0       " report all changes
+set ruler          " show position in bottom right
+
+" STFU
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+"Convenient commands
+
+" Use , instead of \ for leader key (must be defined first)
+let mapleader=','
+
+
+" Up, Down, Left, Right -- switch windows
+noremap <left>   <c-w>h
+noremap <right>  <c-w>l
+noremap <up>     <c-w>k
+noremap <down>   <c-w>j
+
+" Ctrl+Up, Down, Left, Right -- move windows
+noremap <c-left>   <c-w>H
+noremap <c-right>  <c-w>L
+noremap <c-up>     <c-w>K
+noremap <c-down>   <c-w>J
+
+" Move between displayed lines, not physical lines
+" with linewrap, move within a line if the line has warpped
+nnoremap j gj
+nnoremap k gk
+
+" Indent with tab (un-indent with ctrl+space)
+nnoremap <tab> >>
+vnoremap <tab> >
+nnoremap <s-tab> <<
+vnoremap <s-tab> <
+
+
+
+" Reflow paragraph with Q in normal and visual mode
+nnoremap Q gwap
+vnoremap Q gw
+
+" <F2>: enter paste mode (while in insert mode) to paste from outside vim safely
+noremap <F2> :set invpaste paste?<cr>
+set pastetoggle=<F2>
+
+
+"" Switch CWD to the directory of the open buffer
+noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+
+" <leader>sp : toggle check SPelling
+noremap <leader>sp <esc>:setlocal spell!<cr>
+
+
+" <leader>sc : search clear highlight
+noremap <leader>sc <esc>:noh<cr>
+
+" ctrl+s : save (you have to enable passing ctrl+s from the terminal)
+nmap <c-s> <esc>:w<cr>
+
+" ctrl+a : select all
+nnoremap <c-a> 1GVG
+
+" backspace in normal mode
+nmap <bs> X
+
+
+" Map :W --> :w etc (caps lock errors)
+command! W :w
+command! Wq :wq
+command! WQ :wq
+command! Q :q
+command! E :e
+
+
+" <leader>sf -- style-format code
+"    C++    -- ANSI style (A1), with tabs (assumes c/c++)
+"    Python -- PEP8 style (should suppress all style warnings)
+autocmd FileType c,cpp,h,hpp nnoremap <leader>sf <esc>:%!astyle -A1 -t<cr>
+autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
+
+
+" Global fixes
+
+" Faster timout for actions
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Re-adjust windows on window resize
+autocmd VimResized * wincmd =
+
+
+" Jump to last known line when opening a file (change ' to ` to do column too)
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \   if foldlevel('.') > 0 |
+  \     exe "normal zO" |
+  \   endif |
+  \ endif
+
+" Highlight trailing whitespace in the most annoying way possible.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Delete trailing white space
+fun! DeleteTrailingWS()
+	exe "normal mq"
+	%s/\s\+$//ge
+	exe "normal `q"
+	":ShowMarksClearMark
+endfun
+" commented out: vim seems to hang on save with this
+"autocmd BufWrite *.py :call DeleteTrailingWS()
+"autocmd BufWrite *.sh :call DeleteTrailingWS()
+"autocmd BufWrite *.coffee :call DeleteTrailingWS()
+noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
+
+" Filetype tabs, folding, wrapping
+
+" Python -- whitespace sensitive
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" Latex -- 2-space tabs and 80-character hard wrapping
+autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80
+
+" Vimrc -- fold with markers
+autocmd FileType vim setlocal foldmethod=marker
+
+" Crontab -- save a backup
+autocmd FileType crontab setlocal backupcopy=yes
+
+" C/C++ -- smart indentation
+autocmd FileTYpe c,cpp,h,hpp setlocal smartindent cindent
+
+" Powerline -- fancy status line
+let g:Powerline_symbols = 'fancy'
+set laststatus=2  " 2 means always show status
+
+" YankStack -- paste older items on stack
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_older_paste
+
+" Solarized -- change some color assignments to use less eye-bleeding red
+" tex : eye-bleeding red --> dark gray (note that 2 or 3 also work pretty well)
+autocmd FileType tex hi Special ctermfg=10
+" cpp : eye-bleeding red --> bright blue
+autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
+
+
+" Automatically insert C++ header gates for new h/hpp files
+function! s:insert_gates()
+  let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o#define " . gatename
+  execute "normal! Go#endif /* " . gatename . " */"
+  execute "normal! ggo"
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+
+
+" ScmDiff -- <leader>d : inline diff with GIT version
+
+" NERDCommenter -- use default mappings; some of them are:
+"   -- <leader>ci : toggle comment
+"   -- <leader>cc : comment;
+"   -- <leader>cs : comment 'sexily';
+
+
+" CtrlP -- searching files/buffers/tags/etc
+"   -- when selecting a result:
+"     -- enter: open in current window
+"     -- ctrl+t: open in new ab
+"     -- ctrl+v: open in vert split
+"     -- ctrl+s: open in horiz split
+"noremap <leader>ff <esc>:CtrlP<cr>            " find file
+"noremap <leader>ft <esc>:CtrlPBufTagAll<cr>   " find tag
+"noremap <leader>fr <esc>:CtrlPMRUFiles<cr>    " find recently used file
+"noremap <leader>fb <esc>:CtrlPBuffer<cr>      " find buffer
+"noremap <leader>fq <esc>:CtrlPQuickfix<cr>    " find in quickfix
+"noremap <leader>fu <esc>:CtrlPUndo<cr>        " find in undo
+"noremap <leader>fl <esc>:CtrlPLine<cr>        " find in file (by line)
+"noremap <c-f> <esc>:CtrlPLine<cr>             " find in file (by line)
+
+"CtrlP -- ignore files
+"let g:ctrlp_custom_ignore = {
+	"\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+	"\ 'file': '\.exe$\|\.so$\|\.dll$\|\.o$\|\.d$\|\.swp$',
+	"\ }
+
+" CtrlP -- only search current directory
+"let g:ctrlp_working_path_mode = ''
+
+" CtrlP -- refresh file tree on write or focus change
+"augroup CtrlPExtension
+  "autocmd!
+  "autocmd FocusGained * ClearCtrlPCache
+  "autocmd BufWritePost * ClearCtrlPCache
+"augroup END
+
+" GUndo -- <leader>u : show undo tree in right-hand window
+nnoremap <leader>u :GundoToggle<cr>
+let g:gundo_right = 1
+
+" NERDTree -- file browser on left (mnemonic: All files)
+"   -- at : toggle
+"   -- ao : open
+"   -- af : find (custom function in plugins/sbell.vim)
+"   -- ac : close
+noremap <leader>at <esc>:NERDTreeToggle<cr><c-w>=
+noremap <leader>ao <esc>:NERDTree<cr><c-w>=
+noremap <leader>af <esc>:call NERDOpen()<cr>
+noremap <leader>ac <esc>:NERDTreeClose<cr><c-w>=
+
+" NERDTree -- open if no files are listed and set width to 30
+autocmd vimenter * if !argc() | NERDTree | endif
+let g:NERDTreeWinSize = 30
+" Close if NERDTree is the only thing left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Syntastic -- inline syntax errors
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+
+
+
+
+" Latex plugin config {{{
+
+" Replace latex with their math symbol
+" --> see bundle/sbell/syntax/tex.vim
+
+" Disable the <++>
+let g:Imap_UsePlaceHolders = 0
+
+" Treat \ and : like a word character
+" Note: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press <C-n> you will automatically cycle through
+" all the figure labels. Very useful!
+autocmd FileType tex setlocal iskeyword+=\\
+autocmd FileType tex setlocal iskeyword+=:
+
+
+" BUGFIX: Vim7 has a problem detecting the filetype correctly when editing a new
+" LaTex document
+let g:tex_flavor='latex'
+
+" BUGFIX: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse latex-suite. Set your grep
+" program to alway generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+
+" Latex leader: use , instead of `
+let g:Tex_Leader=','
+
+" Don't fold paragraphs or subsubsections
+" (add ,subsubsection,paragraph to end of list to fold those too)
+let g:Tex_FoldedSections='part,chapter,section,%%fakesection,subsection'
+
+" Don't fold \item
+" (add item, to the start of list to fold it too)
+let g:Tex_FoldedMisc='preamble,<<<'
+
+" Directory to scan for latex figure images
+let g:Tex_ImageDir='./figs'
+
+" Use PDF instead of DVI by default
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_CompileRule_pdf='rubber --pdf $*'
+if has('unix') && system("uname") == "Darwin\n"  "(mac)
+    let g:Tex_ViewRule_pdf='open $*.pdf'
+else
+	let g:Tex_ViewRule_pdf='evince'
+endif
+
+" }}}
