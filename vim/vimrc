@@ -26,11 +26,11 @@ syntax enable
 
 " Color scheme - dark
 " Solarized Settings
-set background=dark
+set background=light
+colorscheme solarized
+set t_Co=16
 "colorscheme Tomorrow-Night-Bright
-"colorscheme solarized
-colorscheme tomorrow-night-bright
-set t_Co=256                     " Force the use of 16 colors
+"set t_Co=256                     " Force the use of 256 colors
 
 
 " Font and size -- set one that works with Powerline
