@@ -239,7 +239,9 @@ autocmd FileType vim setlocal    foldmethod=marker
 autocmd FileType crontab setlocal backupcopy=yes
 
 " C/C++ -- smart indentation
-autocmd FileTYpe c,cpp,h,hpp setlocal smartindent cindent
+autocmd FileType c,cpp,h,hpp setlocal smartindent cindent
+
+autocmd FileType gitcommit setlocal nofoldenable
 
 " Powerline -- fancy status line
 let g:Powerline_symbols = 'fancy'
