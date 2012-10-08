@@ -33,3 +33,5 @@
 [merge]
     tool = vimdiff3
 
+[core]
+	excludesfile = /home/mark/.gitconf/gitignore
