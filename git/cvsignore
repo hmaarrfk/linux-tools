@@ -1,2 +1,5 @@
 # Ingore tags
 tags
+*.aux
+*.log
+*.pdf

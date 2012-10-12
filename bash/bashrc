@@ -1,0 +1,21 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+module load openmpi-x86_64
+
+export EDITOR=vimx
+
+PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h \[\e[0;35m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[0m\]]\$ \[\e[0m\]'
+
+
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

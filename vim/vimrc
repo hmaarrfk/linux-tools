@@ -79,7 +79,7 @@ set autoindent     " automatic indentation
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
 set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
 set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
-set softtabstop=4  " default 
+set softtabstop=4  " default
 set expandtab      " force a \t to be 2 spaces when I insert it
 set textwidth=0    " no hard wrapping by default
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -341,7 +341,7 @@ let g:syntastic_quiet_warnings=1
 " --> see bundle/sbell/syntax/tex.vim
 
 " Disable the <++>
-" Actually enable it 
+" Actually enable it
 let g:Imap_UsePlaceHolders = 1
 
 " Treat \ and : like a word character

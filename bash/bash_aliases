@@ -1,0 +1,30 @@
+
+# User specific aliases and functions
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+alias o='gnome-open'
+
+# provides support for clipboard pasting in vim
+alias vim='vimx'
+alias vi='vimx'
+
+# trash move
+alias tm='gvfs-trash'
+
+alias pip='pip-python'
+
+epstopdfall () { ls *.eps | awk '{system("epstopdf "$0 )}'; }
+
+#uncomment if you want to change to the first dir
+#mcd () { mkdir -p "$@" && cd "$1"; }
+#change to the last dir
+mcd () { mkdir -p "$@" && cd "$_"; }
+
+
+
