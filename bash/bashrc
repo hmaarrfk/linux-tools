@@ -14,7 +14,10 @@ module load openmpi-x86_64
 
 export EDITOR=vimx
 
-PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h \[\e[0;35m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[0m\]]\$ \[\e[0m\]'
+# No color + GIT
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+# Color + GIT
+PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W\[\e[0m\]] \[\e[0;36m\]$(__git_ps1 "(%s)")\[\e[0m\]]\$ '
 
 
 

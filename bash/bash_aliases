@@ -14,8 +14,8 @@ alias o='gnome-open'
 alias vim='vimx'
 alias vi='vimx'
 
-# trash move
-alias tm='gvfs-trash'
+# trash remove
+alias trm='gvfs-trash'
 
 alias pip='pip-python'
 
