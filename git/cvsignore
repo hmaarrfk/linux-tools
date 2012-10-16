@@ -2,4 +2,4 @@
 tags
 *.aux
 *.log
-*.pdf
+*.out
