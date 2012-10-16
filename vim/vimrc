@@ -232,6 +232,9 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 " Latex -- 2-space tabs and 80-character hard wrapping
 autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80
 
+" THis should probably be elsewhere
+"call IMAP(",w", "\\omega", "tex")
+
 " Vimrc -- fold with markers
 autocmd FileType vim setlocal    foldmethod=marker
 
@@ -350,6 +353,7 @@ let g:Imap_UsePlaceHolders = 1
 " all the figure labels. Very useful!
 autocmd FileType tex setlocal iskeyword+=\\
 autocmd FileType tex setlocal iskeyword+=:
+autocmd FileType tex setlocal iskeyword+=_
 
 
 " BUGFIX: Vim7 has a problem detecting the filetype correctly when editing a new
