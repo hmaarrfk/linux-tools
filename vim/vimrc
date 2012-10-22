@@ -70,7 +70,7 @@ set showbreak=\ ↪\    " preview wrap with ↪
 " Auto completion
 set wildmenu               "completion with menu
 set wildmode=list:longest  " list instead of fill in options
-set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git
+set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
 set completeopt=menu,preview " Completion with a menu
 
@@ -103,6 +103,16 @@ set showmatch      " show brace match
 set matchtime=2    " faster brace match
 set report=0       " report all changes
 set ruler          " show position in bottom right
+
+" list inivisible characters to display
+set listchars=
+set listchars+=eol:¶
+set listchars+=tab:»·
+set listchars+=extends:›
+set listchars+=precedes:‹
+set listchars+=nbsp:·
+set listchars+=trail:·
+"set list
 
 " STFU
 set noerrorbells visualbell t_vb=
