@@ -240,7 +240,7 @@ noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 " Latex -- 2-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80
+autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80 cole=2
 
 " THis should probably be elsewhere
 "call IMAP(",w", "\\omega", "tex")
@@ -363,12 +363,14 @@ let g:Imap_UsePlaceHolders = 1
 " all the figure labels. Very useful!
 autocmd FileType tex setlocal iskeyword+=\\
 autocmd FileType tex setlocal iskeyword+=:
-autocmd FileType tex setlocal iskeyword+=_
+"autocmd FileType tex setlocal iskeyword+=_
 
 
 " BUGFIX: Vim7 has a problem detecting the filetype correctly when editing a new
 " LaTex document
 let g:tex_flavor='latex'
+
+let g:tex_conceal="adgm"
 
 " BUGFIX: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse latex-suite. Set your grep
