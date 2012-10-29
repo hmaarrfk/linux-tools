@@ -4,10 +4,8 @@ tags
 *.log
 *.out
 *.blg
-*.bbl
 *.bcf
 ~$*
 *.swp
 *.skb
 *.bbl
-*.blg
