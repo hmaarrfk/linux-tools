@@ -70,7 +70,7 @@ set showbreak=\ ↪\    " preview wrap with ↪
 " Auto completion
 set wildmenu               "completion with menu
 set wildmode=list:longest  " list instead of fill in options
-set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux
+set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux,*.pdf,*.out,*.blg,*.bbl,*.bcf
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
 set completeopt=menu,preview " Completion with a menu
 
@@ -93,8 +93,8 @@ set hlsearch       " enable search highlighting (change to nohlsearch to disable
                    " clear highlight with :noh
 
 " Allow to navigate with tags
-" set tagstack
-" set tags=./tags
+set tagstack
+set tags=./tags
 
 " Show more thigns
 set showmode       " show which mode we are in
@@ -240,7 +240,7 @@ noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 " Latex -- 2-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80 cole=2
+autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80 cole=2 spell spelllang=en_us
 
 " THis should probably be elsewhere
 "call IMAP(",w", "\\omega", "tex")
@@ -365,12 +365,13 @@ autocmd FileType tex setlocal iskeyword+=\\
 autocmd FileType tex setlocal iskeyword+=:
 "autocmd FileType tex setlocal iskeyword+=_
 
+" Replace everythign but subscripts and superscripts by fancy
+" characters
+let g:tex_conceal="adgm"
 
 " BUGFIX: Vim7 has a problem detecting the filetype correctly when editing a new
 " LaTex document
 let g:tex_flavor='latex'
-
-let g:tex_conceal="adgm"
 
 " BUGFIX: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse latex-suite. Set your grep

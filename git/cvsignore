@@ -3,4 +3,7 @@ tags
 *.aux
 *.log
 *.out
+*.blg
+*.bbl
+*.bcf
 ~$*
