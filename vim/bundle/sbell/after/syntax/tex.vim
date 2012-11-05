@@ -12,6 +12,11 @@ if has('conceal')
 	syn match texMathSymbol '\\lnot\>' contained conceal cchar=¬
 	syn match texMathSymbol '\\implies\>' contained conceal cchar=⇒
 
+    syn match texMathSymbol '\\{' contained conceal cchar={
+    syn match texMathSymbol '\\}' contained conceal cchar=}
+
+    syn match texMathSymbol '\\dagger' contained conceal cchar=†
+
 	" whitespace markers
 	"syn match texMathSymbol '\\quad' contained conceal cchar=␣
 	"syn match texMathSymbol '\\qquad' contained conceal cchar=␣
