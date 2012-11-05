@@ -12,6 +12,50 @@ if has('conceal')
 	syn match texMathSymbol '\\lnot\>' contained conceal cchar=¬
 	syn match texMathSymbol '\\implies\>' contained conceal cchar=⇒
 
+    " Random symbols
+    syn match texMathSymbol '\\$' contained conceal cchar=$
+
+    " greek letters (I added \ as a word character, so things don't work so
+    " well
+    "syn match texMathSymbol '\\alpha[\>,\\,_,^]'       contained conceal cchar=α
+    "syn match texMathSymbol '\\beta[\>,\\,_,^]'        contained conceal cchar=β
+    "syn match texMathSymbol '\\gamma[\>,\\,_,^]'       contained conceal cchar=γ
+    "syn match texMathSymbol '\\Gamma[\>,\\,_,^]'       contained conceal cchar=Γ
+    "syn match texMathSymbol '\\delta[\>,\\,_,^]'       contained conceal cchar=δ
+    "syn match texMathSymbol '\\Delta[\>,\\,_,^]'       contained conceal cchar=Δ
+    "syn match texMathSymbol '\\epsilon[\>,\\,_,^]'     contained conceal cchar=ϵ
+    "syn match texMathSymbol '\\varepsilon[\>,\\,_,^]'  contained conceal cchar=ε
+    "syn match texMathSymbol '\\zeta[\>,\\,_,^]'        contained conceal cchar=ζ
+    "syn match texMathSymbol '\\eta[\>,\\,_,^]'         contained conceal cchar=η
+    "syn match texMathSymbol '\\theta[\>,\\,_,^]'       contained conceal cchar=θ
+    "syn match texMathSymbol '\\Theta[\>,\\,_,^]'       contained conceal cchar=Θ
+    "syn match texMathSymbol '\\kappa[\>,\\,_,^]'       contained conceal cchar=κ
+    "syn match texMathSymbol '\\lambda[\>,\\,_,^]'      contained conceal cchar=λ
+    "syn match texMathSymbol '\\Lambda[\>,\\,_,^]'      contained conceal cchar=Λ
+    "syn match texMathSymbol '\\mu[\>,\\,_,^]'          contained conceal cchar=μ
+    "syn match texMathSymbol '\\nu[\>,\\,_,^]'          contained conceal cchar=ν
+    "syn match texMathSymbol '\\xi[\>,\\,_,^]'          contained conceal cchar=ξ
+    "syn match texMathSymbol '\\Xi[\>,\\,_,^]'          contained conceal cchar=Ξ
+    "syn match texMathSymbol '\\pi[\>,\\,_,^]'          contained conceal cchar=π
+    "syn match texMathSymbol '\\Pi[\>,\\,_,^]'          contained conceal cchar=Π
+    "syn match texMathSymbol '\\rho[\>,\\,_,^]'         contained conceal cchar=ρ
+    "syn match texMathSymbol '\\sigma[\>,\\,_,^]'       contained conceal cchar=σ
+    "syn match texMathSymbol '\\varsigma[\>,\\,_,^]'    contained conceal cchar=ς
+    "syn match texMathSymbol '\\Sigma[\>,\\,_,^]'       contained conceal cchar=Σ
+    "syn match texMathSymbol '\\tau[\>,\\,_,^]'         contained conceal cchar=τ
+    "syn match texMathSymbol '\\upsilon[\>,\\,_,^]'     contained conceal cchar=υ
+    "syn match texMathSymbol '\\phi[\>,\\,_,^]'         contained conceal cchar=φ
+    "syn match texMathSymbol '\\varphi[\>,\\,_,^]'      contained conceal cchar=ϕ
+    "syn match texMathSymbol '\\Phi[\>,\\,_,^]'         contained conceal cchar=Φ
+    "syn match texMathSymbol '\\chi[\>,\\,_,^]'         contained conceal cchar=χ
+    "syn match texMathSymbol '\\psi[\>,\\,_,^]'         contained conceal cchar=ψ
+    "syn match texMathSymbol '\\Psi[\>,\\,_,^]'         contained conceal cchar=Ψ
+    "syn match texMathSymbol '\\omega[\>,\\,_,^]'       contained conceal cchar=ω
+    "syn match texMathSymbol '\\Omega[\>,\\,_,^]'       contained conceal cchar=Ω
+
+
+
+
 	" whitespace markers
 	"syn match texMathSymbol '\\quad' contained conceal cchar=␣
 	"syn match texMathSymbol '\\qquad' contained conceal cchar=␣
