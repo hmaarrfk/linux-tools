@@ -35,3 +35,5 @@
 
 [core]
 	excludesfile = ~/.cvsignore
+[push]
+	default = simple
