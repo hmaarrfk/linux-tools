@@ -13,7 +13,7 @@ if has('conceal')
 	syn match texMathSymbol '\\implies\>' contained conceal cchar=⇒
 
     " Random symbols
-    syn match texMathSymbol '\\$' contained conceal cchar=$
+    "syn match texMathSymbol '\\$' contained conceal cchar=$
 
     " greek letters (I added \ as a word character, so things don't work so
     " well

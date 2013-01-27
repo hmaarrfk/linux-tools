@@ -361,7 +361,7 @@ let g:Imap_UsePlaceHolders = 1
 " Note: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
-autocmd FileType tex setlocal iskeyword+=\\
+"autocmd FileType tex setlocal iskeyword+=\\
 autocmd FileType tex setlocal iskeyword+=:
 "autocmd FileType tex setlocal iskeyword+=_
 
