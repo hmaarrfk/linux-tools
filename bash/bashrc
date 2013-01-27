@@ -10,7 +10,12 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-module load openmpi-x86_64
+if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+  . /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
+# Don't know why this isn't working anymore
+#module load openmpi-x86_64
 
 export EDITOR=vimx
 

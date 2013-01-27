@@ -106,13 +106,13 @@ set ruler          " show position in bottom right
 
 " list inivisible characters to display
 set listchars=
-set listchars+=eol:¶
+"set listchars+=eol:¶
 set listchars+=tab:»·
 set listchars+=extends:›
 set listchars+=precedes:‹
-set listchars+=nbsp:·
+set listchars+=nbsp:■
 set listchars+=trail:·
-"set list
+set list
 
 " STFU
 set noerrorbells visualbell t_vb=
@@ -241,9 +241,6 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 " Latex -- 2-space tabs and 80-character hard wrapping
 autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80 cole=2 spell spelllang=en_us
-
-" THis should probably be elsewhere
-"call IMAP(",w", "\\omega", "tex")
 
 " Vimrc -- fold with markers
 autocmd FileType vim setlocal    foldmethod=marker
