@@ -248,6 +248,9 @@ autocmd FileType vim setlocal    foldmethod=marker
 " Crontab -- save a backup
 autocmd FileType crontab setlocal backupcopy=yes
 
+" Matlab -- 2space tabs
+autocmd Filetype matlab setlocal smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
 " C/C++ -- smart indentation
 autocmd FileType c,cpp,h,hpp setlocal smartindent cindent
 

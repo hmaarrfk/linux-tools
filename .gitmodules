@@ -34,3 +34,6 @@
 [submodule "vim/bundle/yankstack"]
 	path = vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "vim/bundle/vim-matlab"]
+	path = vim/bundle/vim-matlab
+	url = git://github.com/vim-scripts/MatlabFilesEdition.git
