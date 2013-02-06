@@ -77,9 +77,9 @@ set completeopt=menu,preview " Completion with a menu
 " Indentation -- width of 4 spaces
 set autoindent     " automatic indentation
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
-set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
-set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
-set softtabstop=4  " default
+set tabstop=2      " Number of spaces that a <Tab> in the file counts for (default 8)
+set shiftwidth=2   " Number of spaces to use for each step of (auto)indent.
+set softtabstop=2  " default
 set expandtab      " force a \t to be 2 spaces when I insert it
 set textwidth=0    " no hard wrapping by default
 set backspace=indent,eol,start  " backspace through everything in insert mode
