@@ -37,3 +37,5 @@
 	excludesfile = ~/.cvsignore
 [push]
 	default = simple
+[gui]
+	recentrepo = /home/mark/bash-tools
