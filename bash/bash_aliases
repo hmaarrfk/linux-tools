@@ -28,3 +28,5 @@ mcd () { mkdir -p "$@" && cd "$_"; }
 
 
 
+alias n4mount="simple-mtpfs ~/Misc/Nexus4"
+alias n4umount="fusermount -u ~/Misc/Nexus4"
