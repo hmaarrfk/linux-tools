@@ -12,3 +12,5 @@ tags
 *.nav
 *.snm
 *.toc
+*~
+.gitignore

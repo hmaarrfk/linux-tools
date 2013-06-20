@@ -1,7 +1,7 @@
 " Shortcuts
-call IMAP(',w', '\omega', 'tex')
-call IMAP(',o', '\omicron', 'tex')
-call IMAP('\ig ', '\includegraphics[width=<++>\textwidth]{<++>}', 'tex')
+"call IMAP(',w', '\omega', 'tex')
+"call IMAP(',o', '\omicron', 'tex')
+"call IMAP('\ig ', '\includegraphics[width=<++>\textwidth]{<++>}', 'tex')
 
 " Reformat lines (getting the spacing correct) {{{
 " Note that this clears marks on the current line and eats mark q
