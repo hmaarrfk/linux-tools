@@ -9,3 +9,6 @@ tags
 *.swp
 *.skb
 *.bbl
+*.nav
+*.snm
+*.toc
