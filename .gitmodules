@@ -37,3 +37,6 @@
 [submodule "vim/bundle/tomorrow-night-vim"]
 	path = vim/bundle/tomorrow-night-vim
 	url = git://github.com/mnoble/tomorrow-night-vim.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
