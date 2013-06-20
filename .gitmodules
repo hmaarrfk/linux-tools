@@ -25,9 +25,6 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/vim-tomorrow-night"]
-	path = vim/bundle/vim-tomorrow-night
-	url = https://github.com/ootoovak/vim-tomorrow-night
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
