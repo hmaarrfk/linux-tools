@@ -44,6 +44,7 @@ set guioptions-=LlRrb
 
 " Misc
 set cursorline        " highlight the current cursor line
+set colorcolumn=80    " highlight column 80
 let is_bash=1
 set autoread          "auto-relead modified files (with no local changes)
 set undolevels=65536  " lots of undo (default 1000)

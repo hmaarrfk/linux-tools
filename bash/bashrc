@@ -36,3 +36,9 @@ fi
 if [ -d /opt/parallax ]; then
   PATH=/opt/parallax/bin:$PATH
 fi
+
+if [ -d $HOME/AndroidSDK/platform-tools ]; then
+  PATH=$PATH:$HOME/AndroidSDK/platform-tools
+fi
+
+export PATH
