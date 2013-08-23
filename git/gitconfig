@@ -34,8 +34,10 @@
     tool = vimdiff3
 
 [core]
-	excludesfile = ~/.cvsignore
+  excludesfile = ~/.cvsignore
+  whitespace = trailing-space,space-before-tab
+
 [push]
-	default = simple
+  default = simple
 [gui]
-	recentrepo = /home/mark/bash-tools
+  recentrepo = /home/mark/bash-tools
