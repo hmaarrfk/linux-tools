@@ -23,9 +23,6 @@
 [branch]
     autosetupmerge = true
 
-[psuh]
-    default = upstream
-
 [mergetool "vimdiff3"]
     cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool "gvimdiff3"]
@@ -39,5 +36,6 @@
 
 [push]
   default = simple
+
 [gui]
   recentrepo = /home/mark/bash-tools
