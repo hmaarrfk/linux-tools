@@ -33,6 +33,7 @@
 [core]
   excludesfile = ~/.cvsignore
   whitespace = trailing-space,space-before-tab
+  autocrlf = input
 
 [push]
   default = simple
