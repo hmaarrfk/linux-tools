@@ -3,35 +3,35 @@
 	name = Mark Harfouche
 
 [color]
-    ui = auto
+  ui = auto
 
 [alias]
-    br = branch
-    bra = branch -a
-    ci = commit
-    cia = commit -a
-    ciam = commit -a -m
-    co = checkout
-    cl = clone
-    ps = push
-    df = diff -w
-    rb = rebase
-    st = status
-    sb = show-branch
-    unstage = reset HEAD
-	undo = reset --hard HEAD~1
-	unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  br = branch
+  bra = branch -a
+  ci = commit
+  cia = commit -a
+  ciam = commit -a -m
+  co = checkout
+  cl = clone
+  ps = push
+  df = diff -w
+  rb = rebase
+  st = status
+  sb = show-branch
+  unstage = reset HEAD
+  undo = reset --hard HEAD~1
+  unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [branch]
-    autosetupmerge = true
+  autosetupmerge = true
 
 [mergetool "vimdiff3"]
-    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool "gvimdiff3"]
-    cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [merge]
-    tool = vimdiff3
+  tool = vimdiff3
 
 [core]
   excludesfile = ~/.cvsignore
