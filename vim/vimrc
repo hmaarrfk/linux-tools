@@ -5,11 +5,18 @@
 " where they are configured.
 
 
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
 
 
 
 "Must be first since this sets some options as a side effect
 set nocompatible
+
+
+nnoremap ; :
+vnoremap ; :
+
 
 " Pathogen : package manager {{{
 filetype off
@@ -25,12 +32,8 @@ filetype on
 syntax enable
 
 " Color scheme - dark
-" Solarized Settings
-set background=light
-colorscheme solarized
-set t_Co=16
-"colorscheme Tomorrow-Night-Bright
-"set t_Co=256                     " Force the use of 256 colors
+set t_Co=256
+color wombat256mod
 
 
 " Font and size -- set one that works with Powerline
@@ -43,30 +46,57 @@ set guioptions-=LlRrb
 
 
 " Misc
-set cursorline        " highlight the current cursor line
-set colorcolumn=80    " highlight column 80
 let is_bash=1
 set autoread          "auto-relead modified files (with no local changes)
-set undolevels=65536  " lots of undo (default 1000)
+set undolevels=1024   " lots of undo (default 1000)
 set history=1024      " lost of history (default 20)
-set clipboard=unnamedplus " shared system clipboard.
 set mouse=a           " enable mouse
-set foldmethod=syntax "fold using syntax by default
-set foldminlines=4    " require a medium size to fold
-set foldnestmax=3     " max 3 fold levels for syntax/indent folding
-set hidden            " allo un-saved buffers in background
+set bs=2              " set the backspace behaviour to normal ?????
+"set hidden            " allo un-saved buffers in background
 set lazyredraw        "no redraws in macros
 set confirm           "dialog when :q, :w, :x, ;wq fails
 set title             " change terminal title
 set nostartofline     "don't move cursor when switching buffers/fiels
-set nobackup          " that's what git is for
 set ttyfast           "smoother changes
+
+
+
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup          " that's what git is for
+set nowritebackup
+set noswapfile
+
+" Folding
+set foldmethod=syntax "fold using syntax by default
+set foldminlines=4    " require a medium size to fold
+set foldnestmax=3     " max 3 fold levels for syntax/indent folding
 
 " Appearance
 set number            " enable line numbers
 set scrolloff=3       "keep 3 lines below and above the cursor
+set sidescrolloff=10  "keep 10 characters left and right when scrolling
+set nowrap
 set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
+
+set tw=80
+set cursorline        " highlight the current cursor line
+set colorcolumn=80    " highlight column 80
+highlight ColorColumn ctermbg=233
+
+" Yanking lines inconsistencies
+nnoremap Y y$
+
+" Set new splits to open on bottom and on right
+set splitbelow
+set splitright
+
+" Clipboard
+set clipboard=unnamedplus " shared system clipboard.
+" <F2>: enter paste mode (while in insert mode) to paste from outside vim safely
+noremap <F2> :set invpaste paste?<cr>
+set pastetoggle=<F2>
 
 " Auto completion
 set wildmenu               "completion with menu
@@ -81,6 +111,7 @@ set nosmartindent  " disable C-style indenting by default (only useful for C/C++
 set tabstop=2      " Number of spaces that a <Tab> in the file counts for (default 8)
 set shiftwidth=2   " Number of spaces to use for each step of (auto)indent.
 set softtabstop=2  " default
+set shiftround
 set expandtab      " force a \t to be 2 spaces when I insert it
 set textwidth=0    " no hard wrapping by default
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -125,11 +156,21 @@ autocmd GUIEnter * set visualbell t_vb=
 let mapleader=','
 
 
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+
 " Up, Down, Left, Right -- switch windows
 noremap <left>   <c-w>h
 noremap <right>  <c-w>l
 noremap <up>     <c-w>k
 noremap <down>   <c-w>j
+
+noremap <c-h>   <c-w>h
+noremap <c-l>  <c-w>l
+noremap <c-k>     <c-w>k
+noremap <c-j>   <c-w>j
+
 
 " Ctrl+Up, Down, Left, Right -- move windows
 noremap <c-left>   <c-w>H
@@ -137,28 +178,40 @@ noremap <c-right>  <c-w>L
 noremap <c-up>     <c-w>K
 noremap <c-down>   <c-w>J
 
+" Quick quit command
+noremap <C-w> :quit<CR>  " Quit current window
+
+" Quicksave command
+noremap <C-s> :update<CR>
+vnoremap <C-s> <C-C>:update<CR>
+inoremap <C-s> <C-O>:update<CR>
+
+" Bind nohl
+" Removes highlight of your last search
+noremap <C-x> :nohl<CR>
+vnoremap <C-x> :nohl<CR>
+inoremap <C-x> :nohl<CR>
+
 " Move between displayed lines, not physical lines
 " with linewrap, move within a line if the line has warpped
 nnoremap j gj
 nnoremap k gk
-nnoremap ; :
-vnoremap ; :
 
 " Indent with tab (un-indent with ctrl+space)
 nnoremap <tab> >>
-vnoremap <tab> >
 nnoremap <s-tab> <<
-vnoremap <s-tab> <
+
+" This should work for better visual tabbing
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
 
 
 
 " Reflow paragraph with Q in normal and visual mode
+
 nnoremap Q gwap
 vnoremap Q gw
 
-" <F2>: enter paste mode (while in insert mode) to paste from outside vim safely
-noremap <F2> :set invpaste paste?<cr>
-set pastetoggle=<F2>
 
 
 "" Switch CWD to the directory of the open buffer
@@ -345,62 +398,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Syntastic -- inline syntax errors
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-
-
-
-
-" Latex plugin config {{{
-
-" Replace latex with their math symbol
-" --> see bundle/sbell/syntax/tex.vim
-
-" Disable the <++>
-" Actually enable it
-let g:Imap_UsePlaceHolders = 1
-
-" Treat \ and : like a word character
-" Note: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels. Very useful!
-"autocmd FileType tex setlocal iskeyword+=\\
-autocmd FileType tex setlocal iskeyword+=:
-"autocmd FileType tex setlocal iskeyword+=_
-
-" Replace everythign but subscripts and superscripts by fancy
-" characters
-let g:tex_conceal="adgm"
-
-" BUGFIX: Vim7 has a problem detecting the filetype correctly when editing a new
-" LaTex document
-let g:tex_flavor='latex'
-
-" BUGFIX: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse latex-suite. Set your grep
-" program to alway generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-
-" Latex leader: use , instead of `
-let g:Tex_Leader=','
-
-" Don't fold paragraphs or subsubsections
-" (add ,subsubsection,paragraph to end of list to fold those too)
-let g:Tex_FoldedSections='part,chapter,section,%%fakesection,subsection'
-
-" Don't fold \item
-" (add item, to the start of list to fold it too)
-let g:Tex_FoldedMisc='preamble,<<<'
-
-" Directory to scan for latex figure images
-let g:Tex_ImageDir='./figs'
-
-" Use PDF instead of DVI by default
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='make'
-if has('unix') && system("uname") == "Darwin\n"  "(mac)
-    let g:Tex_ViewRule_pdf='open $*.pdf'
-else
-	let g:Tex_ViewRule_pdf='evince'
-endif
-
-" }}}
