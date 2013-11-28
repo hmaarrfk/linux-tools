@@ -19,9 +19,6 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
@@ -31,12 +28,18 @@
 [submodule "vim/bundle/vim-matlab"]
 	path = vim/bundle/vim-matlab
 	url = git://github.com/vim-scripts/MatlabFilesEdition.git
-[submodule "vim/bundle/latex-box"]
-	path = vim/bundle/latex-box
-	url = git://github.com/LaTeX-Box-Team/LaTeX-Box.git
 [submodule "vim/bundle/tomorrow-night-vim"]
 	path = vim/bundle/tomorrow-night-vim
 	url = git://github.com/mnoble/tomorrow-night-vim.git
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/bundle/Wombat"]
+	path = vim/bundle/Wombat
+	url = git@github.com:vim-scripts/Wombat.git
+[submodule "vim/bundle/vim-wombat256mod"]
+	path = vim/bundle/vim-wombat256mod
+	url = git@github.com:michalbachowski/vim-wombat256mod.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git
