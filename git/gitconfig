@@ -37,6 +37,7 @@
   excludesfile = ~/.cvsignore
   whitespace = trailing-space,space-before-tab
   autocrlf = input
+  editor = vimx
 
 [push]
   default = simple
