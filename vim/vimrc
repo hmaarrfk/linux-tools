@@ -32,8 +32,11 @@ filetype on
 syntax enable
 
 " Color scheme - dark
-set t_Co=256
-color wombat256mod
+set background=dark
+set t_Co=16
+colorscheme solarized
+"set t_Co=256
+"color wombat256mod
 
 
 " Font and size -- set one that works with Powerline
@@ -50,7 +53,7 @@ let is_bash=1
 set autoread          "auto-relead modified files (with no local changes)
 set undolevels=1024   " lots of undo (default 1000)
 set history=1024      " lost of history (default 20)
-set mouse=a           " enable mouse
+set mouse=ar          " enable mouse
 set bs=2              " set the backspace behaviour to normal ?????
 "set hidden            " allo un-saved buffers in background
 set lazyredraw        "no redraws in macros
@@ -83,7 +86,7 @@ set showbreak=\ ↪\    " preview wrap with ↪
 set tw=80
 set cursorline        " highlight the current cursor line
 set colorcolumn=80    " highlight column 80
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=0
 
 " Yanking lines inconsistencies
 nnoremap Y y$

@@ -19,9 +19,6 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "gnome-terminal-colors-solarized"]
-	path = gnome-terminal-colors-solarized
-	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule "vim/bundle/yankstack"]
 	path = vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
@@ -43,3 +40,9 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git@github.com:Lokaltog/powerline.git
+[submodule "terminalcolors"]
+	path = terminalcolors
+	url = git@github.com:arjantop/terminalcolors.git
+[submodule "gnome-terminal-colors-solarized"]
+	path = gnome-terminal-colors-solarized
+	url = git@github.com:sigurdga/gnome-terminal-colors-solarized.git
