@@ -18,6 +18,7 @@ fi
 #module load openmpi-x86_64
 
 export EDITOR=vimx
+export TERM="gnome-256color"
 
 # No color + GIT
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
