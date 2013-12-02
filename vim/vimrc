@@ -284,7 +284,8 @@ autocmd FileType crontab setlocal backupcopy=yes
 autocmd FileType gitcommit setlocal nofoldenable
 
 " Powerline -- fancy status line
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 set laststatus=2  " 2 means always show status
 
 " YankStack -- paste older items on stack
