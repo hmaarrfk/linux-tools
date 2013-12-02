@@ -83,7 +83,7 @@ set nowrap
 set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
 
-set tw=80
+set tw=79
 set cursorline        " highlight the current cursor line
 set colorcolumn=80    " highlight column 80
 highlight ColorColumn ctermbg=0
@@ -111,9 +111,9 @@ set completeopt=menu,preview " Completion with a menu
 " Indentation -- width of 4 spaces
 set autoindent     " automatic indentation
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
-set tabstop=2      " Number of spaces that a <Tab> in the file counts for (default 8)
-set shiftwidth=2   " Number of spaces to use for each step of (auto)indent.
-set softtabstop=2  " default
+set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
+set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
+set softtabstop=4  " default
 set shiftround
 set expandtab      " force a \t to be 2 spaces when I insert it
 set textwidth=0    " no hard wrapping by default
@@ -228,22 +228,8 @@ noremap <leader>sp <esc>:setlocal spell!<cr>
 " <leader>sc : search clear highlight
 noremap <leader>sc <esc>:noh<cr>
 
-" ctrl+s : save (you have to enable passing ctrl+s from the terminal)
-nmap <c-s> <esc>:w<cr>
-
 " ctrl+a : select all
 nnoremap <c-a> 1GVG
-
-" backspace in normal mode
-nmap <bs> X
-
-
-" Map :W --> :w etc (caps lock errors)
-command! W :w
-command! Wq :wq
-command! WQ :wq
-command! Q :q
-command! E :e
 
 
 " <leader>sf -- style-format code
@@ -263,9 +249,10 @@ autocmd VimResized * wincmd =
 
 
 " Jump to last known line when opening a file (change ' to ` to do column too)
+" In the exe "normal'\"" statement
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g'\"" |
+  \   exe "normal g`\"" |
   \   if foldlevel('.') > 0 |
   \     exe "normal zO" |
   \   endif |
@@ -291,25 +278,8 @@ endfun
 "autocmd BufWrite *.coffee :call DeleteTrailingWS()
 noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 
-" Filetype tabs, folding, wrapping
-
-" Python -- whitespace sensitive
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
-
-" Latex -- 2-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal    smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=80 cole=2 spell spelllang=en_us
-
-" Vimrc -- fold with markers
-autocmd FileType vim setlocal    foldmethod=marker
-
 " Crontab -- save a backup
 autocmd FileType crontab setlocal backupcopy=yes
-
-" Matlab -- 2space tabs
-autocmd Filetype matlab setlocal smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-
-" C/C++ -- smart indentation
-autocmd FileType c,cpp,h,hpp setlocal smartindent cindent
 
 autocmd FileType gitcommit setlocal nofoldenable
 
@@ -322,15 +292,12 @@ nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_older_paste
 
 " Solarized -- change some color assignments to use less eye-bleeding red
-" tex : eye-bleeding red --> dark gray (note that 2 or 3 also work pretty well)
-autocmd FileType tex hi Special ctermfg=10
-" cpp : eye-bleeding red --> bright blue
 autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
 
 
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
-  let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g") . '__'
   execute "normal! i#ifndef " . gatename
   execute "normal! o#define " . gatename
   execute "normal! Go#endif /* " . gatename . " */"
