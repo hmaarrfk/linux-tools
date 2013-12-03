@@ -27,6 +27,8 @@ filetype indent on
 filetype on
 " }}}
 
+set encoding=utf-8
+
 
 " Enable syntax highlight
 syntax enable
@@ -35,6 +37,7 @@ syntax enable
 set background=dark
 set t_Co=16
 colorscheme solarized
+
 "set t_Co=256
 "color wombat256mod
 
@@ -321,30 +324,30 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 "     -- ctrl+t: open in new ab
 "     -- ctrl+v: open in vert split
 "     -- ctrl+s: open in horiz split
-"noremap <leader>ff <esc>:CtrlP<cr>            " find file
-"noremap <leader>ft <esc>:CtrlPBufTagAll<cr>   " find tag
-"noremap <leader>fr <esc>:CtrlPMRUFiles<cr>    " find recently used file
-"noremap <leader>fb <esc>:CtrlPBuffer<cr>      " find buffer
-"noremap <leader>fq <esc>:CtrlPQuickfix<cr>    " find in quickfix
-"noremap <leader>fu <esc>:CtrlPUndo<cr>        " find in undo
-"noremap <leader>fl <esc>:CtrlPLine<cr>        " find in file (by line)
-"noremap <c-f> <esc>:CtrlPLine<cr>             " find in file (by line)
+noremap <leader>ff <esc>:CtrlP<cr>            " find file
+noremap <leader>ft <esc>:CtrlPBufTagAll<cr>   " find tag
+noremap <leader>fr <esc>:CtrlPMRUFiles<cr>    " find recently used file
+noremap <leader>fb <esc>:CtrlPBuffer<cr>      " find buffer
+noremap <leader>fq <esc>:CtrlPQuickfix<cr>    " find in quickfix
+noremap <leader>fu <esc>:CtrlPUndo<cr>        " find in undo
+noremap <leader>fl <esc>:CtrlPLine<cr>        " find in file (by line)
+noremap <c-f> <esc>:CtrlPLine<cr>             " find in file (by line)
 
 "CtrlP -- ignore files
-"let g:ctrlp_custom_ignore = {
-	"\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-	"\ 'file': '\.exe$\|\.so$\|\.dll$\|\.o$\|\.d$\|\.swp$',
-	"\ }
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+\ 'file': '\.exe$\|\.so$\|\.dll$\|\.o$\|\.d$\|\.swp$',
+\ }
 
 " CtrlP -- only search current directory
-"let g:ctrlp_working_path_mode = ''
+let g:ctrlp_working_path_mode = ''
 
 " CtrlP -- refresh file tree on write or focus change
-"augroup CtrlPExtension
-  "autocmd!
-  "autocmd FocusGained * ClearCtrlPCache
-  "autocmd BufWritePost * ClearCtrlPCache
-"augroup END
+augroup CtrlPExtension
+autocmd!
+autocmd FocusGained * ClearCtrlPCache
+autocmd BufWritePost * ClearCtrlPCache
+augroup END
 
 " GUndo -- <leader>u : show undo tree in right-hand window
 nnoremap <leader>u :GundoToggle<cr>
@@ -369,3 +372,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Syntastic -- inline syntax errors
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                                    \ 'active_filetypes': [],
+                                    \ 'passive_filetypes': ['c', 'cpp', 'h', 'hpp'] }
