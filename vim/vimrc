@@ -113,6 +113,7 @@ set completeopt=menu,preview " Completion with a menu
 
 " Indentation -- width of 4 spaces
 set autoindent     " automatic indentation
+set copyindent
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
 set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
 set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
@@ -156,6 +157,13 @@ set list
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+" Open folds by default
+autocmd BufWinEnter * normal zR
+
+" Detect file changes when idle or switching windows
+autocmd CursorHold * checktime
+autocmd WinEnter * checktime
+
 "Convenient commands
 
 " Use , instead of \ for leader key (must be defined first)
@@ -172,26 +180,25 @@ noremap <right>  <c-w>l
 noremap <up>     <c-w>k
 noremap <down>   <c-w>j
 
-noremap <c-h>   <c-w>h
-noremap <c-l>  <c-w>l
-noremap <c-k>     <c-w>k
-noremap <c-j>   <c-w>j
+noremap <C-h>  <c-w>h
+noremap <C-l>  <c-w>l
+noremap <C-k>  <c-w>k
+noremap <C-j>  <c-w>j
 
 
 " Ctrl+Up, Down, Left, Right -- move windows
-noremap <c-left>   <c-w>H
-noremap <c-right>  <c-w>L
-noremap <c-up>     <c-w>K
-noremap <c-down>   <c-w>J
+noremap <C-left>   <c-w>H
+noremap <C-right>  <c-w>L
+noremap <C-up>     <c-w>K
+noremap <C-down>   <c-w>J
 
 " Quick quit command
 noremap <C-w> :quit<CR>  " Quit current window
-noremap <C-s-w> <c-w>o
 
 " Quicksave command
 noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
-inoremap <C-s> <C-O>:update<CR>
+inoremap <C-s> <C-C>:update<CR>
 
 " Bind nohl
 " Removes highlight of your last search
@@ -249,7 +256,7 @@ autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Re-adjust windows on window resize
-autocmd VimResized * wincmd =
+"autocmd VimResized * wincmd =
 
 
 " Jump to last known line when opening a file (change ' to ` to do column too)
@@ -382,33 +389,58 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 
 " Change font size
+" http://vim.wikia.com/wiki/Change_font_size_quickly
 
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
 let s:minfontsize = 6
 let s:maxfontsize = 30
+
 function! AdjustFontSize(amount)
-  if has("gui_gtk2") && has("gui_running")
-    let fontname = substitute(&guifont, s:pattern, '\1', '')
-    let cursize = substitute(&guifont, s:pattern, '\2', '')
-    let newsize = cursize + a:amount
-    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-      let newfont = fontname . newsize
-      let &guifont = newfont
-    endif
-  else
-    echoerr "You need to run the GTK2 version of Vim to use this function."
+if has("gui_gtk2") && has("gui_running")
+  let fontname = substitute(&guifont, s:pattern, '\1', '')
+  let cursize = substitute(&guifont, s:pattern, '\2', '')
+  let newsize = cursize + a:amount
+  if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+    let newfont = fontname . newsize
+    let &guifont = newfont
   endif
+else
+  echoerr "You need to run the GTK2 version of Vim to use this function."
+endif
 endfunction
 
 function! LargerFont()
-  call AdjustFontSize(1)
+    call AdjustFontSize(1)
 endfunction
 command! LargerFont call LargerFont()
 
 function! SmallerFont()
-  call AdjustFontSize(-1)
+    call AdjustFontSize(-1)
 endfunction
 command! SmallerFont call SmallerFont()
 
-nnoremap = :LargerFont<CR>
-nnoremap - :SmallerFont<CR>
+
+
+noremap = :LargerFont<CR>
+noremap - :SmallerFont<CR>
+"noremap  <C-->      :SmallerFont<CR>
+"inoremap <C-->      <C-C>:SmallerFont<CR>
+"noremap  <C-=>      :LargerFont<CR>
+"inoremap <C-=>      <C-C>:LargerFont<CR>
+
+
+
+let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
+
+function! SetFontSize(the_size)
+    if has("gui_gtk2") && has("gui_running")
+        let fontname = substitute(&guifont, s:pattern, '\1', '')
+        let newfont = fontname . a:the_size
+        let &guifont = newfont
+    else
+        echoerr "You need to run the GTK2 version of VIM to use this function."
+    endif
+endfunction
+
+command! DefaultFont call SetFontSize(s:defaultfontsize)
+"noremap <C>0 :DefaultFont<CR>
