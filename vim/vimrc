@@ -48,8 +48,10 @@ colorscheme solarized
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 " Remove those pesky scrollbars from the gui
-set guioptions+=LlRrb
-set guioptions-=LlRrb
+"set guioptions+=LlRrb
+"set guioptions-=LlRrb
+set guioptions=aem
+"set guioptions=-t
 
 
 " Misc
@@ -106,15 +108,18 @@ set clipboard=unnamedplus " shared system clipboard.
 noremap <F2> :set invpaste paste?<cr>
 set pastetoggle=<F2>
 
-" Auto completion
+" Autocompletion
 set wildmenu               "completion with menu
 set wildmode=list:longest  " list instead of fill in options
 set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux,*.pdf,*.out,*.blg,*.bbl,*.bcf
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
-set completeopt=menu,preview " Completion with a menu
+"set completeopt=menu,preview " Completion with a menu
+set completeopt=longest,menuone
 
-" Indentation -- width of 4 spaces
-set autoindent     " automatic indentation
+
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
 set copyindent
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
 set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
@@ -195,7 +200,7 @@ noremap <C-up>     <c-w>K
 noremap <C-down>   <c-w>J
 
 " Quick quit command
-noremap <C-w> :quit<CR>  " Quit current window
+"noremap <c-q> :quit<CR>  " Quit current window
 
 " Quicksave command
 noremap <C-s> :update<CR>
@@ -258,7 +263,7 @@ autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Re-adjust windows on window resize
-"autocmd VimResized * wincmd =
+autocmd VimResized * wincmd =
 
 
 " Jump to last known line when opening a file (change ' to ` to do column too)
@@ -286,13 +291,14 @@ fun! DeleteTrailingWS()
     ":ShowMarksClearMark
 endfun
 " commented out: vim seems to hang on save with this
-"autocmd BufWrite *.py :call DeleteTrailingWS()
-"autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.c  :call DeleteTrailingWS()
+autocmd BufWrite *.h  :call DeleteTrailingWS()
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
+autocmd BufWrite *.hpp :call DeleteTrailingWS()
 "autocmd BufWrite *.coffee :call DeleteTrailingWS()
 noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
-
-" Crontab -- save a backup
-autocmd FileType crontab setlocal backupcopy=yes
 
 autocmd FileType gitcommit setlocal nofoldenable
 
@@ -391,6 +397,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 
 
+" Task List
+" http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide#basic-editing-and-debugging
+map <leader>td <Plug>TaskList
+
 " Change font size
 " http://vim.wikia.com/wiki/Change_font_size_quickly
 
@@ -447,3 +457,31 @@ endfunction
 
 command! DefaultFont call SetFontSize(s:defaultfontsize)
 "noremap <C>0 :DefaultFont<CR>
+
+" Fugutive -- git (note the other command: <leader>d for inline diff)
+noremap <leader>gb <esc>:Gblame<cr>
+noremap <leader>gs <esc>:Gstatus<cr>
+noremap <leader>gd <esc>:Gdiff<cr>
+noremap <leader>gl <esc>:Glog<cr>
+noremap <leader>gc <esc>:Gcommit<cr>
+noremap <leader>gp <esc>:Gpush<cr>
+
+
+" Python jedi -- fancy autocomplete
+" https://github.com/davidhalter/jedi-vim
+"   (jedi#auto_vim_configuration sets completeopt to include a pesky window at
+"   the top which I don't want)
+"   <ctrl+space> or <tab> -- autocomplete
+"   <enter>         -- jump to declaration
+"   <leader><enter> -- jump to definition
+"   <leader>rn      -- rename
+"
+
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+"let g:jedi#show_call_signatures = "1"
+let g:jedi#auto_vim_configuration = 0

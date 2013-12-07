@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific aliases and functions
@@ -49,4 +49,7 @@ export HISTCONTROL=ignoredups:erasedups
 
 
 # send in Ctrl-s to vim
+# see http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 stty stop undef
+stty -ixon
+stty 115200
