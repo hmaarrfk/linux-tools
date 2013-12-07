@@ -17,6 +17,8 @@ set nocompatible
 nnoremap ; :
 vnoremap ; :
 
+set fillchars+=vert:\a
+
 
 " Pathogen : package manager {{{
 filetype off
@@ -55,8 +57,8 @@ let is_bash=1
 set autoread          "auto-relead modified files (with no local changes)
 set undolevels=1024   " lots of undo (default 1000)
 set history=1024      " lost of history (default 20)
-set mouse=ar          " enable mouse
-set bs=2              " set the backspace behaviour to normal ?????
+set mouse=a           " enable mouse
+set bs=1              " set the backspace behaviour to normal ?????
 "set hidden            " allo un-saved buffers in background
 set lazyredraw        "no redraws in macros
 set confirm           "dialog when :q, :w, :x, ;wq fails
@@ -278,10 +280,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Delete trailing white space
 fun! DeleteTrailingWS()
-	exe "normal mq"
-	%s/\s\+$//ge
-	exe "normal `q"
-	":ShowMarksClearMark
+    exe "normal mq"
+    %s/\s\+$//ge
+    exe "normal `q"
+    ":ShowMarksClearMark
 endfun
 " commented out: vim seems to hang on save with this
 "autocmd BufWrite *.py :call DeleteTrailingWS()
@@ -367,6 +369,7 @@ let g:gundo_right = 1
 "   -- af : find (custom function in plugins/sbell.vim)
 "   -- ac : close
 noremap <leader>at <esc>:NERDTreeToggle<cr><c-w>=
+noremap <leader>a. <esc>:NERDTree .<cr><c-w>=
 noremap <leader>ao <esc>:NERDTree<cr><c-w>=
 noremap <leader>af <esc>:call NERDOpen()<cr>
 noremap <leader>ac <esc>:NERDTreeClose<cr><c-w>=
