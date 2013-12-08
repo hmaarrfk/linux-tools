@@ -62,6 +62,7 @@ set history=1024      " lost of history (default 20)
 set mouse=a           " enable mouse
 set bs=1              " set the backspace behaviour to normal ?????
 "set hidden            " allo un-saved buffers in background
+set nohidden
 set lazyredraw        "no redraws in macros
 set confirm           "dialog when :q, :w, :x, ;wq fails
 set title             " change terminal title
@@ -379,6 +380,14 @@ noremap <leader>a. <esc>:NERDTree .<cr><c-w>=
 noremap <leader>ao <esc>:NERDTree<cr><c-w>=
 noremap <leader>af <esc>:call NERDOpen()<cr>
 noremap <leader>ac <esc>:NERDTreeClose<cr><c-w>=
+
+let NERDTreeIgnore = []
+for suffix in split(&suffixes, ',')
+    let NERDTreeIgnore += [ escape(suffix, '.~') . '$' ]
+endfor
+let NERDTreeIgnore += ['\.o', '\.lo']
+
+let NERDTreeIgnore += ['^\.bundle$', '^\.bzr$', '^\.git$', '^\.hg$', '^\.sass-cache$', '^\.svn$', '^\.$', '^\.\.$', '^Thumbs\.db$']
 
 " NERDTree -- open if no files are listed and set width to 30
 autocmd vimenter * if !argc() | NERDTree | endif
