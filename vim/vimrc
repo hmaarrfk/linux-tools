@@ -14,6 +14,13 @@ autocmd! bufwritepost .vimrc source %
 set nocompatible
 
 
+" they don't actually do the same thing in VIM, so it is nice to remap Ctrl+c to
+" escape so that it does
+:inoremap <c-c> <esc>
+
+:inoremap <c-v> <esc>pa
+
+
 nnoremap ; :
 vnoremap ; :
 
@@ -87,11 +94,11 @@ set number            " enable line numbers
 set scrolloff=3       "keep 3 lines below and above the cursor
 set sidescrolloff=10  "keep 10 characters left and right when scrolling
 set nowrap
+"set wrap
 set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
 
 set tw=79
-set cursorline        " highlight the current cursor line
 set colorcolumn=80    " highlight column 80
 highlight ColorColumn ctermbg=0
 
@@ -111,15 +118,16 @@ set pastetoggle=<F2>
 
 " Autocompletion
 set wildmenu               "completion with menu
-set wildmode=list:longest  " list instead of fill in options
+set wildmode=list:full  " list instead of fill in options
 set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux,*.pdf,*.out,*.blg,*.bbl,*.bcf
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
 "set completeopt=menu,preview " Completion with a menu
 set completeopt=longest,menuone
 
 
-au FileType python set omnifunc=pythoncomplete#Complete
+"au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 set copyindent
 set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
@@ -318,13 +326,24 @@ autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
 
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
-  let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g") . '__'
-  execute "normal! i#ifndef " . gatename
-  execute "normal! o#define " . gatename
-  execute "normal! Go#endif /* " . gatename . " */"
-  execute "normal! ggo"
+    let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g") . '__'
+    execute "normal! i#ifndef " . gatename
+    execute "normal! o#define " . gatename
+    execute "normal! Go#endif /* " . gatename . " */"
+    execute "normal! ko"
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+
+" Automatically make the header for python files
+function! s:InsertPythonHeader()
+    let filename = expand("%:t")
+    execute "normal! i#/usr/bin/env python2.7"
+    let modeline = printf("vim: set ts=%d sw=%d tw=%d %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+    execute "normal! o#" l:modeline
+    execute "normal! o"
+endfunction
+autocmd BufNewFile *.py call <SID>InsertPythonHeader()
 
 
 " ScmDiff -- <leader>d : inline diff with GIT version
@@ -380,6 +399,7 @@ noremap <leader>a. <esc>:NERDTree .<cr><c-w>=
 noremap <leader>ao <esc>:NERDTree<cr><c-w>=
 noremap <leader>af <esc>:call NERDOpen()<cr>
 noremap <leader>ac <esc>:NERDTreeClose<cr><c-w>=
+let NERDTreeQuitOnOpen=1
 
 let NERDTreeIgnore = []
 for suffix in split(&suffixes, ',')
@@ -491,6 +511,7 @@ noremap <leader>gp <esc>:Gpush<cr>
 "let g:jedi#documentation_command = "K"
 "let g:jedi#usages_command = "<leader>n"
 "let g:jedi#completions_command = "<C-Space>"
-"let g:jedi#rename_command = "<leader>r"
+let g:jedi#rename_command = "<leader>rn"
 "let g:jedi#show_call_signatures = "1"
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_select_first = 1
