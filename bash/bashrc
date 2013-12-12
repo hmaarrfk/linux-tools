@@ -44,6 +44,8 @@ fi
 
 export PATH
 
+export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+
 # Ignore duplicates in bash history
 export HISTCONTROL=ignoredups:erasedups
 
