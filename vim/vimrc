@@ -92,11 +92,15 @@ set foldnestmax=3     " max 3 fold levels for syntax/indent folding
 " Appearance
 set number            " enable line numbers
 set scrolloff=3       "keep 3 lines below and above the cursor
-set sidescrolloff=10  "keep 10 characters left and right when scrolling
-set nowrap
-"set wrap
+set sidescrolloff=3   "keep 10 characters left and right when scrolling
 set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
+
+"set nowrap
+set wrap
+autocmd InsertEnter * set nowrap
+autocmd InsertLeave * set wrap
+autocmd BufWinEnter * set wrap
 
 set tw=79
 set colorcolumn=80    " highlight column 80
@@ -272,16 +276,18 @@ autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Re-adjust windows on window resize
-autocmd VimResized * wincmd =
+"autocmd VimResized * wincmd =
 
 
 " Jump to last known line when opening a file (change ' to ` to do column too)
 " In the exe "normal'\"" statement
 autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \   if foldlevel('.') > 0 |
-  \     exe "normal zO" |
+  \ if &ft =~ 'COMMIT_EDITMSG' |
+  \   if line("'\"") > 0 && line("'\"") <= line("$") |
+  \     exe "normal g`\"" |
+  \     if foldlevel('.') > 0 |
+  \       exe "normal zO" |
+  \     endif |
   \   endif |
   \ endif
 
@@ -291,6 +297,8 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+
 
 " Delete trailing white space
 fun! DeleteTrailingWS()
@@ -306,6 +314,7 @@ autocmd BufWrite *.c  :call DeleteTrailingWS()
 autocmd BufWrite *.h  :call DeleteTrailingWS()
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
 autocmd BufWrite *.hpp :call DeleteTrailingWS()
+autocmd BufWrite *.m :call DeleteTrailingWS()
 "autocmd BufWrite *.coffee :call DeleteTrailingWS()
 noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 
