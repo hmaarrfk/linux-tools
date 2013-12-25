@@ -242,10 +242,14 @@ vnoremap <s-tab> <gv
 
 
 " Reflow paragraph with Q in normal and visual mode
-
 nnoremap Q gwap
 vnoremap Q gw
 
+
+" Align code to the space bar
+nnoremap <leader>= :Tabularize /=<cr>
+" find out a way to allow for ranges to be given
+"vnoremap = :Tabularize /=<cr>
 
 
 "" Switch CWD to the directory of the open buffer
