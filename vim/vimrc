@@ -248,6 +248,7 @@ vnoremap Q gw
 
 " Align code to the space bar
 nnoremap <leader>= :Tabularize /=<cr>
+nnoremap <leader>- :Tabularize /,/l0l1<cr>
 " find out a way to allow for ranges to be given
 "vnoremap = :Tabularize /=<cr>
 
@@ -484,6 +485,9 @@ noremap - :SmallerFont<CR>
 "inoremap <C-=>      <C-C>:LargerFont<CR>
 
 
+"Vim signify
+"I only use git
+let g:signify_vcs_list = [ 'git' ]
 
 let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
 
