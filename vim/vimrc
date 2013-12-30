@@ -103,7 +103,7 @@ autocmd InsertLeave * set wrap
 autocmd BufWinEnter * set wrap
 
 set tw=79
-set colorcolumn=80    " highlight column 80
+set colorcolumn=79    " highlight column 80
 highlight ColorColumn ctermbg=0
 
 " Yanking lines inconsistencies
@@ -287,7 +287,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 " Jump to last known line when opening a file (change ' to ` to do column too)
 " In the exe "normal'\"" statement
 autocmd BufReadPost *
-  \ if &ft =~ 'COMMIT_EDITMSG' |
+  \ if &ft !~ 'COMMIT_EDITMSG' |
   \   if line("'\"") > 0 && line("'\"") <= line("$") |
   \     exe "normal g`\"" |
   \     if foldlevel('.') > 0 |
@@ -486,9 +486,24 @@ noremap - :SmallerFont<CR>
 
 
 "Vim signify
-"I only use git
+" match solarized colors
+hi SignifySignAdd ctermbg=darkgray ctermfg=2
+hi SignifySignDelete ctermbg=darkgray ctermfg=9
+hi SignifySignChange ctermbg=darkgray ctermfg=3
+
+" use ~ instead of ! for changes
+let g:signify_sign_change = '~'
+"
+" " only check git and hg (faster by not checking for the 8 other supported
+" VCS)
 let g:signify_vcs_list = [ 'git' ]
 
+"vim-ipython
+let g:ipy_use_ctr_s_mappings = 0
+let g:ipy_complete_func      = 'local'
+let g:ipy_kill_on_exit       = 1
+
+"Chaning fonts with + - in gui :D
 let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
 
 function! SetFontSize(the_size)
