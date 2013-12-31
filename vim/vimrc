@@ -27,6 +27,7 @@ vnoremap ; :
 set fillchars+=vert:\a
 
 
+let g:pathogen_disabled = ['jedi-vim', 'vim-ipython']
 " Pathogen : package manager {{{
 filetype off
 call pathogen#infect()
@@ -537,7 +538,6 @@ noremap <leader>gp <esc>:Gpush<cr>
 "   <leader><enter> -- jump to definition
 "   <leader>rn      -- rename
 "
-
 "let g:jedi#goto_assignments_command = "<leader>g"
 "let g:jedi#goto_definitions_command = "<leader>d"
 "let g:jedi#documentation_command = "K"
