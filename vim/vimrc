@@ -27,7 +27,7 @@ vnoremap ; :
 set fillchars+=vert:\a
 
 
-let g:pathogen_disabled = ['jedi-vim', 'vim-ipython']
+let g:pathogen_disabled = ['jedi-vim', 'vipy']
 " Pathogen : package manager {{{
 filetype off
 call pathogen#infect()
@@ -97,15 +97,16 @@ set sidescrolloff=3   "keep 10 characters left and right when scrolling
 set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
 
-"set nowrap
-set wrap
-autocmd InsertEnter * set nowrap
-autocmd InsertLeave * set wrap
-autocmd BufWinEnter * set wrap
+set nowrap
+"set wrap
+"autocmd InsertEnter * set nowrap
+"autocmd InsertLeave * set wrap
+"autocmd BufWinEnter * set wrap
 
 set tw=79
 set colorcolumn=79    " highlight column 80
 highlight ColorColumn ctermbg=0
+set cursorline
 
 " Yanking lines inconsistencies
 nnoremap Y y$
@@ -488,9 +489,9 @@ noremap - :SmallerFont<CR>
 
 "Vim signify
 " match solarized colors
-hi SignifySignAdd ctermbg=darkgray ctermfg=2
-hi SignifySignDelete ctermbg=darkgray ctermfg=9
-hi SignifySignChange ctermbg=darkgray ctermfg=3
+exe "hi! SignifySignAdd"    .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_green']
+exe "hi! SignifySignDelete" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_red']
+exe "hi! SignifySignChange" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_orange']
 
 " use ~ instead of ! for changes
 let g:signify_sign_change = '~'

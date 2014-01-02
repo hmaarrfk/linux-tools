@@ -18,7 +18,9 @@
 	url = git://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+    url  = git@github.com:hmaarrfk/vim-colors-solarized.git
+    ;url  = git://github.com/thomwiggers/vim-colors-solarized.git
+	;url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/yankstack"]
 	path = vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
