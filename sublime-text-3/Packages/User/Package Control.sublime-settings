@@ -1,0 +1,17 @@
+{
+	"installed_packages":
+	[
+		"Git",
+		"Git Config",
+		"GitGutter",
+		"Jedi - Python autocompletion",
+		"Python Breakpoints",
+		"Python Flake8 Lint",
+		"SublimeLinter",
+		"SublimeLinter-pep257",
+		"SublimeLinter-pep8",
+		"SyncedSideBar",
+		"Theme - Soda",
+		"Theme - Sodarized"
+	]
+}

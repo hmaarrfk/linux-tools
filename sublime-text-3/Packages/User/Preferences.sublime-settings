@@ -1,0 +1,27 @@
+{
+	"caret_extra_width": 1,
+	"caret_style": "solid",
+	"color_scheme": "Packages/User/Solarized (Dark) (SL).tmTheme",
+	"fallback_encoding": "utf-8",
+	"font_size": 10,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage",
+		"Python Flake8 Lint"
+	],
+	"rulers":
+	[
+		72,
+		79
+	],
+	"show_line_endings": true,
+	"soda_classic_tabs": true,
+	"soda_folder_icons": true,
+	"tab_size": 4,
+	"theme": "Soda Dark 3.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true,
+	"wrap_width": 80
+}

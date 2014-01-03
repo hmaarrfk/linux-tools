@@ -27,7 +27,7 @@ vnoremap ; :
 set fillchars+=vert:\a
 
 
-let g:pathogen_disabled = ['jedi-vim', 'vipy']
+let g:pathogen_disabled = ['jedi-vim', 'vipy', 'syntastic', 'vim-gitignore']
 " Pathogen : package manager {{{
 filetype off
 call pathogen#infect()
@@ -503,7 +503,7 @@ let g:signify_vcs_list = [ 'git' ]
 "vim-ipython
 let g:ipy_use_ctr_s_mappings = 0
 let g:ipy_complete_func      = 'local'
-let g:ipy_kill_on_exit       = 1
+let g:ipy_unique_to_session  = 1
 
 "Chaning fonts with + - in gui :D
 let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
