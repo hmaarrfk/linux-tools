@@ -7,6 +7,15 @@
         "gutter_theme_excludes": [],
         "lint_mode": "background",
         "linters": {
+            "flake8": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "ignore": "",
+                "max-complexity": -1,
+                "max-line-length": null,
+                "select": ""
+            },
             "pep257": {
                 "@disable": false,
                 "args": [],
@@ -16,7 +25,7 @@
                 "@disable": false,
                 "args": [],
                 "excludes": [],
-                "ignore": "",
+                "ignore": "E221",
                 "max-line-length": null,
                 "select": ""
             }

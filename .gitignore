@@ -11,6 +11,7 @@ sublime-text-3/Packages/User/*.cache
 sublime-text-3/Packages/User/*.last-run
 
 sublime-text-3/Packages/*
+sublime-text-3/Backup/*
 
 !sublime-text-3/Packages/User
 

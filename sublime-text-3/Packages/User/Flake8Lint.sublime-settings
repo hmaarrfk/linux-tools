@@ -1,4 +1,6 @@
 {
-    "lint_on_load": false,
+    "lint_on_load": true,
     "gutter_marks": "dot",
+    "pep8_max_line_length": 79,
+    "ignore": ["E221", "E222"],
 }
