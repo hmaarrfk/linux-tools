@@ -13,5 +13,4 @@ tags
 *.snm
 *.toc
 *~
-.gitignore
 *.pyc

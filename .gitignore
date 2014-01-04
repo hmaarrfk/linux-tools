@@ -1,0 +1,16 @@
+sublime-text-3/Cache
+sublime-text-3/Index
+sublime-text-3/Installed Packages
+sublime-text-3/Local
+
+# At first I didn't want to ignore all themes
+# But I figure I might as well
+sublime-text-3/Packages/User/*.tmTheme
+sublime-text-3/Packages/User/*(SL).tmTheme
+sublime-text-3/Packages/User/*.cache
+sublime-text-3/Packages/User/*.last-run
+
+sublime-text-3/Packages/*
+
+!sublime-text-3/Packages/User
+
