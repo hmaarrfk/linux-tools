@@ -14,7 +14,7 @@
   co = checkout
   cl = clone
   ps = push
-  df = diff -w
+  df = diff --ignore-all-space
   rb = rebase
   st = status
   sb = show-branch
@@ -35,7 +35,7 @@
 
 [core]
   excludesfile = ~/.cvsignore
-  whitespace = trailing-space,space-before-tab,indent-with-non-tab
+  whitespace = trailing-space, space-before-tab, indent-with-non-tab
   autocrlf = input
   editor = vimx
 
