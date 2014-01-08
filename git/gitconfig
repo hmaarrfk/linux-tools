@@ -2,6 +2,9 @@
 	email = mark.harfouche@gmail.com
 	name = Mark Harfouche
 
+[init]
+	templatedir = ~/bash-tools/git
+
 [color]
   ui = auto
 
@@ -26,21 +29,21 @@
 [branch]
   autosetupmerge = true
 
+[core]
+  excludesfile = ~/.cvsignore
+  autocrlf = input
+  editor = vimx
+  whitespace = trailing-space, space-before-tab
+
+[apply]
+  whitespace = trailing-space, space-before-tab
+
+[push]
+  default = simple
+
 [mergetool "vimdiff3"]
   cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool "gvimdiff3"]
   cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [merge]
   tool = vimdiff3
-
-[core]
-  excludesfile = ~/.cvsignore
-  whitespace = trailing-space, space-before-tab, indent-with-non-tab
-  autocrlf = input
-  editor = vimx
-
-[push]
-  default = simple
-
-[gui]
-  recentrepo = /home/mark/bash-tools

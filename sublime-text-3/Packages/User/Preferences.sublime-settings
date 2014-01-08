@@ -4,6 +4,7 @@
 	"caret_style": "solid",
 	"color_scheme": "Packages/User/Solarized (Dark) (SL).tmTheme",
 	"fallback_encoding": "utf-8",
+	"font_face": "Monospace",
 	"font_size": 11,
 	"highlight_line": true,
 	"ignored_packages":
@@ -13,8 +14,8 @@
 	],
 	"rulers":
 	[
-		72,
-		79
+		92,
+		99
 	],
 	"show_line_endings": true,
 	"soda_classic_tabs": true,
@@ -24,5 +25,6 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false,
-	"wrap_width": 80
+	"wrap_width": 80,
+	"hot_exit": false,
 }
