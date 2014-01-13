@@ -1,9 +1,11 @@
 {
+	"auto_complete_commit_on_tab": true,
 	"caret_extra_width": 1,
 	"caret_style": "solid",
 	"color_scheme": "Packages/User/Solarized (Dark) (SL).tmTheme",
 	"fallback_encoding": "utf-8",
-	"font_size": 10,
+	"font_face": "Monospace",
+	"font_size": 11,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -12,8 +14,8 @@
 	],
 	"rulers":
 	[
-		72,
-		79
+		92,
+		99
 	],
 	"show_line_endings": true,
 	"soda_classic_tabs": true,
@@ -24,5 +26,5 @@
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false,
 	"wrap_width": 80,
-	"auto_complete_commit_on_tab": true,
+	"hot_exit": false,
 }
