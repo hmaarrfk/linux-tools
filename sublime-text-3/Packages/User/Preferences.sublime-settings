@@ -7,10 +7,11 @@
 	"font_face": "Monospace",
 	"font_size": 11,
 	"highlight_line": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Python Flake8 Lint"
+		"Python Flake8 Lint",
+		"Vintage"
 	],
 	"rulers":
 	[
@@ -25,6 +26,5 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false,
-	"wrap_width": 80,
-	"hot_exit": false,
+	"wrap_width": 80
 }
