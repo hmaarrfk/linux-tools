@@ -13,6 +13,8 @@ autocmd! bufwritepost .vimrc source %
 "Must be first since this sets some options as a side effect
 set nocompatible
 
+set shell=/bin/bash
+
 
 " they don't actually do the same thing in VIM, so it is nice to remap Ctrl+c to
 " escape so that it does
