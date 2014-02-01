@@ -10,6 +10,7 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"SublimeLinter-pep8",
 		"Python Flake8 Lint",
 		"Vintage"
 	],
