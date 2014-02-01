@@ -18,6 +18,7 @@
   cl = clone
   ps = push
   df = diff --ignore-all-space
+  dw = diff --ignore-all-space --word-diff
   rb = rebase
   st = status
   sb = show-branch
@@ -34,6 +35,9 @@
   autocrlf = input
   editor = vimx
   whitespace = trailing-space, space-before-tab
+
+[diff "texdiff"]
+  wordRegex = "\\\\[a-zA-Z]+|[{}]|\\\\.|[^\\{}[:space:]]+"
 
 [apply]
   whitespace = trailing-space, space-before-tab
