@@ -1,9 +1,10 @@
 
-set EDITOR vim
+set -gx EDITOR vim
+set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
 
 # http://fishshell.com/docs/current/tutorial.html
 if test -d $HOME/.rvm/bin
-    set-gx  PATH $PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+    set -gx  PATH $PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
 end
 
 if test -d /opt/parallax/bin
