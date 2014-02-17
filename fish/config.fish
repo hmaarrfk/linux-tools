@@ -1,4 +1,5 @@
 
+set fish_greeting "Welcome to Mark Harfouche's computer."
 set -gx EDITOR vim
 set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
 
