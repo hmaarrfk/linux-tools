@@ -17,6 +17,9 @@ fi
 # Don't know why this isn't working anymore
 #module load openmpi-x86_64
 
+# Add vimx if it exists
+if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'
+
 export EDITOR=vim
 #export TERM="gnome-256color"
 

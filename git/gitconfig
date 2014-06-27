@@ -33,7 +33,7 @@
 [core]
   excludesfile = ~/.cvsignore
   autocrlf = input
-  editor = vimx
+  editor = vim
   whitespace = trailing-space,space-before-tab,indent-with-non-space
 
 [diff "texdiff"]
