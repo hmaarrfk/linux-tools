@@ -5,8 +5,9 @@ alias pbpaste='xclip -selection clipboard -o'
 alias o='gnome-open'
 
 # provides support for clipboard pasting in vim
-alias vim='vimx'
-alias vi='vimx'
+# Add vimx if it exists
+if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
+if [ -e /usr/bin/vim ]; then alias vi='vim'; fi
 
 # trash remove
 alias trm='gvfs-trash'
