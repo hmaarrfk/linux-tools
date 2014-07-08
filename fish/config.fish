@@ -1,7 +1,8 @@
 
 set fish_greeting "Welcome to Mark Harfouche's computer."
 set -gx EDITOR vim
-set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
+#set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
+#set -gx MATLAB_JAVA /usr/java/jre1.7.0_60/
 
 # http://fishshell.com/docs/current/tutorial.html
 if test -d $HOME/.rvm/bin
