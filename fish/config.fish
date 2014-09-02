@@ -1,7 +1,7 @@
 
 set fish_greeting "Welcome to Mark Harfouche's computer."
 set -gx EDITOR vim
-#set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
+set -gx MATLAB_JAVA /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/
 #set -gx MATLAB_JAVA /usr/java/jre1.7.0_60/
 
 # http://fishshell.com/docs/current/tutorial.html
@@ -20,6 +20,21 @@ end
 if test -d /usr/local/lib64
     set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib64
 end
+
+
+# Vivado configuration
+#if test -d /opt/Xilinx/Vivado
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/../../SDK/2013.3/bin/lin64 $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/../../SDK/2013.3/gnu/microblaze/lin/bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/../../SDK/2013.3/gnu/powerpc-eabi/lin/bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/../../SDK/2013.3/gnu/arm/lin/bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/../../SDK/2013.3/gnu/microblaze/linux_toolchain/lin64_be/bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/./../Vivado_HLS/2013.3/bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/./bin $PATH
+    #set -gx PATH /opt/Xilinx/Vivado/2013.3/./.xinstall/bin/lin64 $PATH
+
+    #set -gx XILINX_VIVADO /opt/Xilinx/Vivado/2013.3/.
+#end
 
 # Do I need these?
 # send in Ctrl-s to vim

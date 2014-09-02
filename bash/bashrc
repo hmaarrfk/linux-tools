@@ -54,6 +54,10 @@ if [ -d $HOME/AndroidSDK/platform-tools ]; then
   PATH=$PATH:$HOME/AndroidSDK/platform-tools
 fi
 
+#if [ -f /opt/Xilinx/Vivado/2013.3/settings64.sh ]; then
+    #source /opt/Xilinx/Vivado/2013.3/settings64.sh
+#fi
+
 export PATH
 
 export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH

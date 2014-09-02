@@ -12,7 +12,17 @@
 	[
 		"Vintage",
 		"Python Flake8 Lint",
-		"SublimeLinter-pep8"
+		"SublimeLinter-pep8",
+		"Git",
+		"GitGutter",
+		"Jedi - Python autocompletion",
+		"Python Breakpoints",
+		"SublimeLinter",
+		"SublimeLinter-flake8",
+		"SublimeLinter-pep257",
+		"SyncedSideBar",
+		"Theme - Soda",
+		"Theme - Sodarized"
 	],
 	"rulers":
 	[

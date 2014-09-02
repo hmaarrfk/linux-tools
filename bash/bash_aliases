@@ -15,6 +15,8 @@ alias trm='gvfs-trash'
 alias pip='pip-python'
 alias pip3='pip-python3'
 
+alias m='make'
+
 epstopdfall () { ls *.eps | awk '{system("epstopdf "$0 )}'; }
 
 #uncomment if you want to change to the first dir
@@ -22,6 +24,7 @@ epstopdfall () { ls *.eps | awk '{system("epstopdf "$0 )}'; }
 #change to the last dir
 mcd () { mkdir -p "$@" && cd "$_"; }
 
+alias pwdcopy="pwd | tr -d '\n' | pbcopy"
 
 
 alias n4mount="simple-mtpfs ~/Misc/Nexus4"

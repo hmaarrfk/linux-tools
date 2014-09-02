@@ -277,6 +277,8 @@ nnoremap <c-a> 1GVG
 "    Python -- PEP8 style (should suppress all style warnings)
 autocmd FileType c,cpp,h,hpp nnoremap <leader>sf <esc>:%!astyle -A1 -t<cr>
 autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
+autocmd Filetype tcl setlocal expandtab tabstop=3 shiftwidth=3 softtabstop=3
+autocmd Filetype tex setlocal spell
 
 
 " Global fixes
