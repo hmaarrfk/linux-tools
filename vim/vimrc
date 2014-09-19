@@ -130,7 +130,7 @@ set wildmode=list:full  " list instead of fill in options
 set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux,*.pdf,*.out,*.blg,*.bbl,*.bcf
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
 "set completeopt=menu,preview " Completion with a menu
-set completeopt=longest,menuone
+set completeopt=longest,menu
 
 
 "au FileType python set omnifunc=pythoncomplete#Complete
@@ -279,6 +279,7 @@ autocmd FileType c,cpp,h,hpp nnoremap <leader>sf <esc>:%!astyle -A1 -t<cr>
 autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
 autocmd Filetype tcl setlocal expandtab tabstop=3 shiftwidth=3 softtabstop=3
 autocmd Filetype tex setlocal spell
+autocmd Filetype spin setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 " Global fixes
