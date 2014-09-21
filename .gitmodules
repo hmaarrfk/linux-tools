@@ -84,3 +84,6 @@
 [submodule "emacs/lisp/emacs-color-theme-solarized"]
 	path = emacs/lisp/emacs-color-theme-solarized
 	url = git@github.com:sellout/emacs-color-theme-solarized.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git
