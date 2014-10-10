@@ -87,3 +87,6 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "vim/bundle/editorconfig"]
+	path = vim/bundle/editorconfig
+	url = git@github.com:editorconfig/editorconfig-vim.git
