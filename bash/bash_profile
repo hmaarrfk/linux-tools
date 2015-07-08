@@ -1,3 +1,4 @@
+#!/bin/bash
 # .bash_profile
 
 # Get the aliases and functions
@@ -7,14 +8,17 @@ fi
 
 # User specific environment and startup programs
 
+# Don't know why this isn't working anymore
+module load mpi/mpich-x86_64
+
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
 ## export JAVA_HOME JDK/JRE ##
-export JAVA_HOME="/usr/java/latest"
-export MATLAB_JAVA="/usr/java/latest/jre/"
+#export JAVA_HOME="/usr/java/latest"
+#export MATLAB_JAVA="/usr/java/latest/jre/"
 #https://wiki.archlinux.org/index.php/awesome#Grey_Java_GUIs
-export _JAVA_AWT_WM_NONREPARENTING=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
 export USE_CCACHE=1
 

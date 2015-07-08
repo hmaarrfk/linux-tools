@@ -78,9 +78,6 @@
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = git@github.com:mhinz/vim-signify.git
-[submodule "vim/bundle/vim-ipython"]
-	path = vim/bundle/vim-ipython
-	url = git@github.com:hmaarrfk/vim-ipython.git
 [submodule "emacs/lisp/emacs-color-theme-solarized"]
 	path = emacs/lisp/emacs-color-theme-solarized
 	url = git@github.com:sellout/emacs-color-theme-solarized.git

@@ -1,12 +1,5 @@
+#!/bin/bash
 # .bashrc
-
-# added stuff inspired by ubuntu's bashrc file
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -18,15 +11,15 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+
 if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
   . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
-# Don't know why this isn't working anymore
-#module load openmpi-x86_64
+#export TERM=screen-256color
+export TERM=gnome-256color
 
 export EDITOR=vim
-#export TERM="gnome-256color"
 
 # No color + GIT
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
@@ -34,20 +27,13 @@ export EDITOR=vim
 PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
 
 
-# openCV install in local
-if [ -d /usr/local/lib/python2.7/site-packages ]; then
-    export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
-fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-if [ -f /opt/intel/bin/compilervars.sh ]; then
-    source /opt/intel/bin/compilervars.sh intel64
-fi
-
 # Add the parallax stuff
 if [ -d /opt/parallax ]; then
   PATH=/opt/parallax/bin:$PATH
+fi
+
+if [ -d /home/mark/.linuxbrew/bin ]; then
+    PATH=/home/mark/.linuxbrew/bin:$PATH
 fi
 
 if [ -d $HOME/AndroidSDK/platform-tools ]; then
@@ -60,7 +46,7 @@ fi
 
 export PATH
 
-export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 
 # Ignore duplicates in bash history
 export HISTCONTROL=ignoredups:erasedups
@@ -71,36 +57,3 @@ export HISTCONTROL=ignoredups:erasedups
 stty stop undef
 stty -ixon
 stty 115200
-
-
-
-## This is really for Ubuntu only, their bashrc is not the same as
-# Fedora's
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
