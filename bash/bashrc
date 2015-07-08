@@ -27,6 +27,10 @@ export EDITOR=vim
 PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
 
 
+# for packaging RPMs
+export RPM_PACKAGER='Mark Harfouche <mark.harfouche@gmail.com>'
+
+
 # Add the parallax stuff
 if [ -d /opt/parallax ]; then
   PATH=/opt/parallax/bin:$PATH
