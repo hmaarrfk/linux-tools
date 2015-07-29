@@ -314,6 +314,11 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 
+" Set scheme filetype for meep
+autocmd BufReadPost *.ctl set filetype=scheme
+autocmd BufNewFile *.ctl set filetype=scheme
+
+
 
 " Delete trailing white space
 fun! DeleteTrailingWS()
@@ -493,6 +498,11 @@ noremap - :SmallerFont<CR>
 "inoremap <C-->      <C-C>:SmallerFont<CR>
 "noremap  <C-=>      :LargerFont<CR>
 "inoremap <C-=>      <C-C>:LargerFont<CR>
+
+
+"indent guides (vim-indent-guides)
+"let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
 
 "Vim signify

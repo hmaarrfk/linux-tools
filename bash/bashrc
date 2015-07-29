@@ -21,6 +21,10 @@ export TERM=gnome-256color
 
 export EDITOR=vim
 
+
+# get more information for guile
+export GUILE_WARN_DEPRECATED=detailed
+
 # No color + GIT
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 # Color + GIT
