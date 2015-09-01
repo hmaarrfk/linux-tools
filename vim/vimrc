@@ -6,7 +6,7 @@
 
 
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+"autocmd! bufwritepost .vimrc source %
 
 
 
@@ -49,7 +49,8 @@ set encoding=utf-8
 syntax enable
 
 " Color scheme - dark
-"set background=light
+call togglebg#map("<F5>")
+set background=light
 set t_Co=256
 colorscheme solarized
 
@@ -69,10 +70,11 @@ set guioptions=aem
 
 " Misc
 let is_bash=1
-set autoread          "auto-relead modified files (with no local changes)
+set autoread          "auto-reload modified files (with no local changes)
 set undolevels=1024   " lots of undo (default 1000)
 set history=1024      " lost of history (default 20)
 set mouse=a           " enable mouse
+set ttymouse=xterm    " Set this to the name of your terminal that supports mouse codes.
 set bs=1              " set the backspace behaviour to normal ?????
 "set hidden            " allo un-saved buffers in background
 set nohidden
@@ -108,9 +110,9 @@ set nowrap
 "autocmd InsertLeave * set wrap
 "autocmd BufWinEnter * set wrap
 
-set tw=79
-set colorcolumn=79    " highlight column 80
-highlight ColorColumn ctermbg=0
+set tw=99
+set colorcolumn=100    " highlight column 80
+"highlight ColorColumn
 set cursorline
 
 " Yanking lines inconsistencies
