@@ -3,19 +3,15 @@
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-
 alias o='gnome-open'
 
 # provides support for clipboard pasting in vim
 # Add vimx if it exists
-if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
-if [ -e /usr/bin/vim ]; then alias vi='vim'; fi
+#if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
+#if [ -e /usr/bin/vim ]; then alias vi='vim'; fi
 
 # trash remove
 alias trm='gvfs-trash'
-
-alias pip='pip-python'
-alias pip3='pip-python3'
 
 alias m='make'
 
@@ -27,7 +23,3 @@ epstopdfall () { ls *.eps | awk '{system("epstopdf "$0 )}'; }
 mcd () { mkdir -p "$@" && cd "$_"; }
 
 alias pwdcopy="pwd | tr -d '\n' | pbcopy"
-
-
-alias n4mount="simple-mtpfs ~/Misc/Nexus4"
-alias n4umount="fusermount -u ~/Misc/Nexus4"

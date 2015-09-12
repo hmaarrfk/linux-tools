@@ -285,6 +285,8 @@ autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr>
 autocmd Filetype tcl setlocal expandtab tabstop=3 shiftwidth=3 softtabstop=3
 autocmd Filetype tex setlocal spell
 autocmd Filetype spin setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype mkd.markdown setlocal wrap spell
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 " Global fixes
