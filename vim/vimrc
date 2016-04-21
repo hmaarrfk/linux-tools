@@ -50,12 +50,11 @@ syntax enable
 
 " Color scheme - dark
 call togglebg#map("<F5>")
-set background=light
+set background=dark
 set t_Co=256
 colorscheme solarized
 
-"set t_Co=256
-"color wombat256mod
+color wombat256mod
 
 
 " Font and size -- set one that works with Powerline
@@ -370,7 +369,7 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 " Automatically make the header for python files
 function! s:InsertPythonHeader()
     let filename = expand("%:t")
-    execute "normal! i#/usr/bin/env python2.7"
+    execute "normal! i#!/usr/bin/env python3"
     let modeline = printf("vim: set ts=%d sw=%d tw=%d %set :",
         \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
     execute "normal! o#" l:modeline
