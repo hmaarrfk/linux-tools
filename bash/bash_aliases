@@ -3,7 +3,7 @@
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias o='gnome-open'
+alias o='xdg-open'
 
 # provides support for clipboard pasting in vim
 # Add vimx if it exists

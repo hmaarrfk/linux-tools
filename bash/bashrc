@@ -1,6 +1,9 @@
 #!/bin/bash
 # .bashrc
 
+# For Anaconda
+# export PATH=/home/mark/anaconda3/bin:$PATH
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -20,6 +23,8 @@ fi
 export TERM=gnome-256color
 
 export EDITOR=vim
+
+export QT_GRAPHICSSYSTEM=native
 
 
 # get more information for guile
@@ -67,10 +72,10 @@ stty -ixon
 stty 115200
 
 
-# see http://fedoramagazine.org/add-power-terminal-powerline/
-if [ -f `which powerline-daemon` ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bash/powerline.sh
-fi
+ #see http://fedoramagazine.org/add-power-terminal-powerline/
+#if [ -f `which powerline-daemon` ]; then
+  #powerline-daemon -q
+  #POWERLINE_BASH_CONTINUATION=1
+  #POWERLINE_BASH_SELECT=1
+  #. /usr/share/powerline/bash/powerline.sh
+#fi
