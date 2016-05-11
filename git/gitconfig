@@ -38,9 +38,6 @@
 [diff "texdiff"]
   wordRegex = "\\\\[a-zA-Z]+|[{}]|\\\\.|[^\\{}[:space:]]+"
 
-[apply]
-  whitespace = trailing-space, space-before-tab
-
 [push]
   default = simple
 
