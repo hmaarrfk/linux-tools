@@ -29,10 +29,9 @@ vnoremap ; :
 nnoremap : ;
 vnoremap : ;
 
-set fillchars+=vert:\a
+set fillchars+=vert:\
 
-
-let g:pathogen_disabled = ['jedi-vim', 'vipy', 'syntastic', 'vim-gitignore']
+let g:pathogen_disabled = ['vipy', 'syntastic', 'vim-gitignore']
 " Pathogen : package manager {{{
 filetype off
 call pathogen#infect()
@@ -44,28 +43,9 @@ filetype on
 
 set encoding=utf-8
 
-
+set guioptions=aem
 " Enable syntax highlight
 syntax enable
-
-" Color scheme - dark
-call togglebg#map("<F5>")
-set background=dark
-set t_Co=256
-colorscheme solarized
-
-color wombat256mod
-
-
-" Font and size -- set one that works with Powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
-
-" Remove those pesky scrollbars from the gui
-"set guioptions+=LlRrb
-"set guioptions-=LlRrb
-set guioptions=aem
-"set guioptions=-t
-
 
 " Misc
 let is_bash=1
@@ -84,12 +64,13 @@ set nostartofline     "don't move cursor when switching buffers/fiels
 set ttyfast           "smoother changes
 
 
-
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup          " that's what git is for
 set nowritebackup
 set noswapfile
+
+
 
 " Folding
 set foldmethod=syntax "fold using syntax by default
@@ -104,10 +85,6 @@ set linebreak         "show warp at word boundaries
 set showbreak=\ ↪\    " preview wrap with ↪
 
 set nowrap
-"set wrap
-"autocmd InsertEnter * set nowrap
-"autocmd InsertLeave * set wrap
-"autocmd BufWinEnter * set wrap
 
 set tw=99
 set colorcolumn=100    " highlight column 80
@@ -135,7 +112,6 @@ set wildignore=*~,*.o,*.d,*.obj,*.class,*.bak,*.swp,.svn,.git,*.aux,*.pdf,*.out,
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp
 "set completeopt=menu,preview " Completion with a menu
 set completeopt=longest,menu
-
 
 "au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -243,16 +219,9 @@ nnoremap k gk
 nnoremap <tab> >>
 nnoremap <s-tab> <<
 
-" This should work for better visual tabbing
-vnoremap <tab> >gv
-vnoremap <s-tab> <gv
-
-
-
 " Reflow paragraph with Q in normal and visual mode
 nnoremap Q gwap
 vnoremap Q gw
-
 
 " Align code to the space bar
 nnoremap <leader>= :Tabularize /=<cr>
@@ -268,13 +237,11 @@ noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 " <leader>sp : toggle check SPelling
 noremap <leader>sp <esc>:setlocal spell!<cr>
 
-
 " <leader>sc : search clear highlight
 noremap <leader>sc <esc>:noh<cr>
 
 " ctrl+a : select all
 nnoremap <c-a> 1GVG
-
 
 " <leader>sf -- style-format code
 "    C++    -- ANSI style (A1), with tabs (assumes c/c++)
@@ -288,7 +255,6 @@ autocmd Filetype mkd.markdown setlocal wrap spell
 autocmd Filetype mkd.markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
-
 
 " Global fixes
 
@@ -324,7 +290,6 @@ autocmd BufReadPost *.ctl set filetype=scheme
 autocmd BufNewFile *.ctl set filetype=scheme
 
 
-
 " Delete trailing white space
 fun! DeleteTrailingWS()
     exe "normal mq"
@@ -354,10 +319,6 @@ set laststatus=2  " 2 means always show status
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_older_paste
 
-" Solarized -- change some color assignments to use less eye-bleeding red
-autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
-
-
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
     let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g") . '__'
@@ -378,9 +339,6 @@ function! s:InsertPythonHeader()
     execute "normal! o"
 endfunction
 autocmd BufNewFile *.py call <SID>InsertPythonHeader()
-
-
-" ScmDiff -- <leader>d : inline diff with GIT version
 
 " NERDCommenter -- use default mappings; some of them are:
 "   -- <leader>ci : toggle comment
@@ -456,10 +414,6 @@ let g:syntastic_quiet_warnings=1
 let g:syntastic_mode_map = { 'mode': 'active',
                                     \ 'active_filetypes': [],
                                     \ 'passive_filetypes': ['c', 'cpp', 'h', 'hpp'] }
-
-
-
-
 " Task List
 " http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide#basic-editing-and-debugging
 map <leader>td <Plug>TaskList
@@ -485,6 +439,7 @@ else
 endif
 endfunction
 
+
 function! LargerFont()
     call AdjustFontSize(1)
 endfunction
@@ -507,14 +462,13 @@ noremap - :SmallerFont<CR>
 
 "indent guides (vim-indent-guides)
 "let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-
+"let g:indent_guides_enable_on_vim_startup = 1
 
 "Vim signify
 " match solarized colors
-exe "hi! SignifySignAdd"    .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_green']
-exe "hi! SignifySignDelete" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_red']
-exe "hi! SignifySignChange" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_orange']
+"exe "hi! SignifySignAdd"    .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_green']
+"exe "hi! SignifySignDelete" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_red']
+"exe "hi! SignifySignChange" .g:solarized_vars['fmt_bold'] .g:solarized_vars['fg_orange']
 
 " use ~ instead of ! for changes
 let g:signify_sign_change = '~'
