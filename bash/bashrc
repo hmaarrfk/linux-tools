@@ -1,9 +1,6 @@
 #!/bin/bash
 # .bashrc
 
-# For Anaconda
-# export PATH=/home/mark/anaconda3/bin:$PATH
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -14,12 +11,10 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-
 if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
   . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
-#export TERM=screen-256color
 export TERM=gnome-256color
 
 export EDITOR=vim
@@ -34,7 +29,6 @@ export GUILE_WARN_DEPRECATED=detailed
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 # Color + GIT
 PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
-
 
 # for packaging RPMs
 export RPM_PACKAGER='Mark Harfouche <mark.harfouche@gmail.com>'
@@ -53,13 +47,7 @@ if [ -d $HOME/AndroidSDK/platform-tools ]; then
   PATH=$PATH:$HOME/AndroidSDK/platform-tools
 fi
 
-#if [ -f /opt/Xilinx/Vivado/2013.3/settings64.sh ]; then
-    #source /opt/Xilinx/Vivado/2013.3/settings64.sh
-#fi
-
 export PATH
-
-#export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 
 # Ignore duplicates in bash history
 export HISTCONTROL=ignoredups:erasedups
@@ -70,15 +58,6 @@ export HISTCONTROL=ignoredups:erasedups
 stty stop undef
 stty -ixon
 stty 115200
-
-
-# see http://fedoramagazine.org/add-power-terminal-powerline/
-#if [ -f `which powerline-daemon` ]; then
-  #powerline-daemon -q
-  #POWERLINE_BASH_CONTINUATION=1
-  #POWERLINE_BASH_SELECT=1
-  #. /usr/share/powerline/bash/powerline.sh
-#fi
 
 
 man() {
