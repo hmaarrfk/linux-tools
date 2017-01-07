@@ -29,7 +29,7 @@ vnoremap ; :
 nnoremap : ;
 vnoremap : ;
 
-set fillchars+=vert:\
+set fillchars+=vert:\|
 
 let g:pathogen_disabled = ['vipy', 'syntastic', 'vim-gitignore']
 " Pathogen : package manager {{{
