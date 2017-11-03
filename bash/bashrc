@@ -3,16 +3,20 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  source /etc/bashrc
 fi
 
 # User specific aliases and functions
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
 if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-  . /usr/share/git-core/contrib/completion/git-prompt.sh
+  source /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
 fi
 
 export TERM=gnome-256color

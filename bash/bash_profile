@@ -8,8 +8,14 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=$HOME/.local/bin:$HOME/bin:$PATH
 export PATH
+
+
+# Cuda installation
+if [ -d /usr/local/cuda-9.0/bin ]; then
+    export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+fi
 
 export USE_CCACHE=1
 
