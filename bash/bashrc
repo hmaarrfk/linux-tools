@@ -13,6 +13,10 @@ fi
 
 if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
   . /usr/share/git-core/contrib/completion/git-prompt.sh
+  # No color + GIT
+  #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+  # Color + GIT
+  PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
 fi
 
 export TERM=gnome-256color
@@ -21,14 +25,8 @@ export EDITOR=vim
 
 export QT_GRAPHICSSYSTEM=native
 
-
 # get more information for guile
 export GUILE_WARN_DEPRECATED=detailed
-
-# No color + GIT
-#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-# Color + GIT
-PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
 
 # for packaging RPMs
 export RPM_PACKAGER='Mark Harfouche <mark.harfouche@gmail.com>'
@@ -52,13 +50,11 @@ export PATH
 # Ignore duplicates in bash history
 export HISTCONTROL=ignoredups:erasedups
 
-
 # send in Ctrl-s to vim
 # see http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 stty stop undef
 stty -ixon
 stty 115200
-
 
 man() {
     env \
