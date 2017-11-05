@@ -3,21 +3,31 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  source /etc/bashrc
 fi
 
 # User specific aliases and functions
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
+# No color + GIT
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+# Color + GIT
+GIT_PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
+
+# Fedora
 if [ -f  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-  . /usr/share/git-core/contrib/completion/git-prompt.sh
-  # No color + GIT
-  #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-  # Color + GIT
-  PS1='\[\e[0m\][\[\e[0;34m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;35m\]\W$(__git_ps1 "\[\e[0m\] \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
+  source /usr/share/git-core/contrib/completion/git-prompt.sh
+  PS1=$GIT_PS1
 fi
+
+# Ubuntu
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
+  PS1=$GIT_PS1
+fi
+
 
 export TERM=gnome-256color
 
@@ -25,27 +35,8 @@ export EDITOR=vim
 
 export QT_GRAPHICSSYSTEM=native
 
-# get more information for guile
-export GUILE_WARN_DEPRECATED=detailed
-
 # for packaging RPMs
 export RPM_PACKAGER='Mark Harfouche <mark.harfouche@gmail.com>'
-
-
-# Add the parallax stuff
-if [ -d /opt/parallax ]; then
-  PATH=/opt/parallax/bin:$PATH
-fi
-
-if [ -d /home/mark/.linuxbrew/bin ]; then
-    PATH=/home/mark/.linuxbrew/bin:$PATH
-fi
-
-if [ -d $HOME/AndroidSDK/platform-tools ]; then
-  PATH=$PATH:$HOME/AndroidSDK/platform-tools
-fi
-
-export PATH
 
 # Ignore duplicates in bash history
 export HISTCONTROL=ignoredups:erasedups
@@ -55,17 +46,3 @@ export HISTCONTROL=ignoredups:erasedups
 stty stop undef
 stty -ixon
 stty 115200
-
-man() {
-    env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
-            man "$@"
-}
-
-
