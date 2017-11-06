@@ -5,6 +5,8 @@ alias pbpaste='xclip -selection clipboard -o'
 
 alias o='xdg-open'
 
+alias ls='ls --color'
+
 # provides support for clipboard pasting in vim
 # Add vimx if it exists
 #if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
