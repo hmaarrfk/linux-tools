@@ -29,7 +29,7 @@ if [ -f /etc/bash_completion.d/git-prompt ]; then
 fi
 
 
-export TERM=gnome-256color
+#export TERM=gnome-256color
 
 export EDITOR=vim
 
