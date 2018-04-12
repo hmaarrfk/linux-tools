@@ -46,3 +46,6 @@ export HISTCONTROL=ignoredups:erasedups
 stty stop undef
 stty -ixon
 stty 115200
+
+# added by Miniconda3 installer
+export PATH="$HOME/miniconda3/bin:$PATH"
