@@ -1,0 +1,23 @@
+# XONSH WIZARD START
+# XONSH WIZARD END
+# https://github.com/gforsyth/xonda
+$PATH = ["$HOME/miniconda3/bin"] + $PATH
+xontrib load xonda
+
+$PROMPT_FIELDS['env_name'] = lambda: "("+$CONDA_DEFAULT_ENV+")" if 'CONDA_DEFAULT_ENV' in __xonsh__.env else None
+def prompt_end():
+    s = '\n'
+    if __xonsh__.history and __xonsh__.history[-1].rtn !=0:
+        s += '{BOLD_RED}'
+    s += '$ '
+    return s
+$PROMPT_FIELDS['prompt_end'] = prompt_end
+$XONSH_GITSTATUS_STASHED = '⚑ '
+$XONSH_GITSTATUS_STAGED = '{RED}● '
+$PROMPT = '{env_name:{} }{BOLD_GREEN}{user}@{hostname}{BOLD_BLUE} {short_cwd} {gitstatus}{NO_COLOR} {BOLD_BLUE}{prompt_end}{NO_COLOR}'
+
+import warnings
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+
+stty -ixon
+
