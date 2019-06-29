@@ -86,8 +86,8 @@ set showbreak=\ ↪\    " preview wrap with ↪
 
 set nowrap
 
-set tw=99
-set colorcolumn=100    " highlight column 80
+set tw=79
+set colorcolumn=80    " highlight column 80
 "highlight ColorColumn
 set cursorline
 

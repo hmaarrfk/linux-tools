@@ -1,4 +1,4 @@
 "gvim settings
 set guifont=Monospace\ 11
-"colorscheme darkspectrum
-colorscheme solarized
+colorscheme darkspectrum
+" colorscheme solarized
