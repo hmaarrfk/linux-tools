@@ -13,6 +13,17 @@
 "Must be first since this sets some options as a side effect
 set nocompatible
 
+call plug#begin('~/.vim/plugged')
+    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdcommenter'
+
+    Plug 'vim-scripts/SearchComplete'
+    Plug 'vim-scripts/Wombat'
+    Plug 'ervandew/supertab'
+    Plug 'vim-airline/vim-airline'
+    Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
+
 set shell=/bin/bash
 
 
@@ -30,16 +41,6 @@ nnoremap : ;
 vnoremap : ;
 
 set fillchars+=vert:\|
-
-let g:pathogen_disabled = ['vipy', 'syntastic', 'vim-gitignore']
-" Pathogen : package manager {{{
-filetype off
-call pathogen#infect()
-call pathogen#helptags()
-filetype plugin on
-filetype indent on
-filetype on
-" }}}
 
 set encoding=utf-8
 
@@ -218,6 +219,8 @@ nnoremap k gk
 " Indent with tab (un-indent with ctrl+space)
 nnoremap <tab> >>
 nnoremap <s-tab> <<
+vnoremap <tab> >>
+vnoremap <s-tab> <<
 
 " Reflow paragraph with Q in normal and visual mode
 nnoremap Q gwap
@@ -383,14 +386,7 @@ let g:gundo_right = 1
 
 " NERDTree -- file browser on left (mnemonic: All files)
 "   -- at : toggle
-"   -- ao : open
-"   -- af : find (custom function in plugins/sbell.vim)
-"   -- ac : close
 noremap <leader>at <esc>:NERDTreeToggle<cr><c-w>=
-noremap <leader>a. <esc>:NERDTree .<cr><c-w>=
-noremap <leader>ao <esc>:NERDTree<cr><c-w>=
-noremap <leader>af <esc>:call NERDOpen()<cr>
-noremap <leader>ac <esc>:NERDTreeClose<cr><c-w>=
 let NERDTreeQuitOnOpen=1
 
 let NERDTreeIgnore = []
@@ -450,16 +446,6 @@ function! SmallerFont()
 endfunction
 command! SmallerFont call SmallerFont()
 
-
-
-noremap = :LargerFont<CR>
-noremap - :SmallerFont<CR>
-"noremap  <C-->      :SmallerFont<CR>
-"inoremap <C-->      <C-C>:SmallerFont<CR>
-"noremap  <C-=>      :LargerFont<CR>
-"inoremap <C-=>      <C-C>:LargerFont<CR>
-
-
 "indent guides (vim-indent-guides)
 "let g:indent_guides_guide_size = 1
 "let g:indent_guides_enable_on_vim_startup = 1
@@ -482,21 +468,6 @@ let g:ipy_use_ctr_s_mappings = 0
 let g:ipy_complete_func      = 'local'
 let g:ipy_unique_to_session  = 1
 
-"Chaning fonts with + - in gui :D
-let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
-
-function! SetFontSize(the_size)
-    if has("gui_gtk2") && has("gui_running")
-        let fontname = substitute(&guifont, s:pattern, '\1', '')
-        let newfont = fontname . a:the_size
-        let &guifont = newfont
-    else
-        echoerr "You need to run the GTK2 version of VIM to use this function."
-    endif
-endfunction
-
-command! DefaultFont call SetFontSize(s:defaultfontsize)
-"noremap <C>0 :DefaultFont<CR>
 
 " Fugutive -- git (note the other command: <leader>d for inline diff)
 noremap <leader>gb <esc>:Gblame<cr>

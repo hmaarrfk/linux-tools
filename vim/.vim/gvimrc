@@ -2,3 +2,26 @@
 set guifont=Monospace\ 11
 colorscheme darkspectrum
 " colorscheme solarized
+"
+noremap = :LargerFont<CR>
+noremap - :SmallerFont<CR>
+"noremap  <C-->      :SmallerFont<CR>
+"inoremap <C-->      <C-C>:SmallerFont<CR>
+"noremap  <C-=>      :LargerFont<CR>
+"inoremap <C-=>      <C-C>:LargerFont<CR>
+"
+"Chaning fonts with + - in gui :D
+let s:defaultfontsize = substitute(&guifont, s:pattern, '\2', '')
+
+function! SetFontSize(the_size)
+    if has("gui_gtk2") && has("gui_running")
+        let fontname = substitute(&guifont, s:pattern, '\1', '')
+        let newfont = fontname . a:the_size
+        let &guifont = newfont
+    else
+        echoerr "You need to run the GTK2 version of VIM to use this function."
+    endif
+endfunction
+
+command! DefaultFont call SetFontSize(s:defaultfontsize)
+"noremap <C>0 :DefaultFont<CR>
