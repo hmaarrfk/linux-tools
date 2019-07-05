@@ -1,72 +1,12 @@
-[submodule "vim/bundle/gundo.vim"]
-	path = vim/.vim/bundle/gundo.vim
-	url = git://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/.vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/SearchComplete"]
-	path = vim/.vim/bundle/SearchComplete
-	url = git://github.com/vim-scripts/SearchComplete.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/.vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/.vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/yankstack"]
 	path = vim/.vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "vim/bundle/tomorrow-night-vim"]
 	path = vim/bundle/tomorrow-night-vim
 	url = git://github.com/mnoble/tomorrow-night-vim.git
-[submodule "vim/bundle/vim-indent-guides"]
-	path = vim/.vim/bundle/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "vim/bundle/Wombat"]
-	path = vim/.vim/bundle/Wombat
-	url = git@github.com:vim-scripts/Wombat.git
-[submodule "vim/bundle/vim-wombat256mod"]
-	path = vim/.vim/bundle/vim-wombat256mod
-	url = git@github.com:michalbachowski/vim-wombat256mod.git
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git@github.com:Lokaltog/powerline.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/.vim/bundle/vim-airline
-	url = git@github.com:bling/vim-airline.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/tasklist"]
-	path = vim/.vim/bundle/tasklist
-	url = https://github.com/vim-scripts/TaskList.vim.git
-[submodule "vim/bundle/vim-surround"]
-	path = vim/.vim/bundle/vim-surround
-	url = git@github.com:tpope/vim-surround.git
-[submodule "vim/bundle/vim-gitignore"]
-	path = vim/.vim/bundle/vim-gitignore
-	url = git@github.com:vitaly/vim-gitignore.git
-[submodule "vim/bundle/supertab"]
-	path = vim/.vim/bundle/supertab
-	url = git@github.com:ervandew/supertab.git
-[submodule "vim/bundle/tabular"]
-	path = vim/.vim/bundle/tabular
-	url = git@github.com:godlygeek/tabular.git
-[submodule "vim/bundle/vim-signify"]
-	path = vim/.vim/bundle/vim-signify
-	url = git@github.com:mhinz/vim-signify.git
 [submodule "emacs/lisp/emacs-color-theme-solarized"]
 	path = emacs/lisp/emacs-color-theme-solarized
 	url = git@github.com:sellout/emacs-color-theme-solarized.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/.vim/bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
-[submodule "vim/bundle/editorconfig"]
-	path = vim/.vim/bundle/editorconfig
-	url = git@github.com:editorconfig/editorconfig-vim.git
-[submodule "vim/bundle/vim-bracketed-paste"]
-	path = vim/.vim/bundle/vim-bracketed-paste
-	url = git@github.com:ConradIrwin/vim-bracketed-paste.git

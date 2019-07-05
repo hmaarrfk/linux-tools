@@ -1,6 +1,5 @@
 $PATH = ["$HOME/miniconda3/bin"] + $PATH
 $PATH = ["/usr/lib/ccache"] + $PATH
-$QT_XKB_CONFIG_ROOT="/usr/share/X11/xkb"
 xontrib load xonda
 
 $PROMPT_FIELDS['env_name'] = lambda: "("+$CONDA_DEFAULT_ENV+")" if 'CONDA_DEFAULT_ENV' in __xonsh__.env else None
