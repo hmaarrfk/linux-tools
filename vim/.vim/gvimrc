@@ -1,6 +1,6 @@
 "gvim settings
 set guifont=Monospace\ 11
-colorscheme darkspectrum
+" colorscheme darkspectrum
 " colorscheme solarized
 "
 noremap = :LargerFont<CR>

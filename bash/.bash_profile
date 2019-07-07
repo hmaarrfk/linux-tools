@@ -38,3 +38,5 @@ xhost +local: 2&>/dev/null
 # my own alias
 # If this is before the rvm script call, this will cause an annoying error
 alias cd='cd -P'
+
+export PATH="$HOME/.cargo/bin:$PATH"

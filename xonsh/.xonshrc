@@ -1,4 +1,5 @@
 $PATH = ["$HOME/miniconda3/bin"] + $PATH
+$PATH = ["$HOME/.cargo/bin"] + $PATH
 $PATH = ["/usr/lib/ccache"] + $PATH
 xontrib load xonda
 

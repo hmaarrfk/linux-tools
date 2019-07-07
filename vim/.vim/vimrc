@@ -1,28 +1,44 @@
-" VIMRC
-"
-" Read the various sections to see all the command mappings
-" Many (but not all) of the plugs have mini-documentation
-" where they are configured.
-
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-
-
 "Must be first since this sets some options as a side effect
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+
+    " File management
     Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'
 
-    Plug 'vim-scripts/SearchComplete'
-    Plug 'vim-scripts/Wombat'
-    Plug 'ervandew/supertab'
     Plug 'vim-airline/vim-airline'
+
+    Plug 'nathanaelkane/vim-indent-guides'
+
+    Plug 'vim-scripts/SearchComplete'
+    Plug 'ervandew/supertab'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'sjl/gundo.vim'
+
+    Plug 'ConradIrwin/vim-bracketed-paste'
+
+    " Git
+    Plug 'mhinz/vim-signify'
+
+    " Language plugins
+    Plug 'gisphm/vim-gitignore'
+    Plug 'plasticboy/vim-markdown'
+
+    " Text control
+    Plug 'godlygeek/tabular'
+
+    " IDE like
+    Plug 'vim-syntastic/syntastic'
+
+    " Colors
     Plug 'vim-scripts/darkspectrum'
+    Plug 'vim-scripts/Wombat'
+    Plug 'morhetz/gruvbox'
+
+
+    " Conveniences
+    " Plug 'tpope/vim-surround'
 call plug#end()
 
 set shell=/bin/bash
@@ -40,6 +56,14 @@ vnoremap ; :
 
 nnoremap : ;
 vnoremap : ;
+
+" https://github.com/morhetz/gruvbox/wiki/Terminal-specific#1-italics-is-disabled
+set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=dark    " Setting dark mode
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
 
 set fillchars+=vert:\|
 
@@ -406,7 +430,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Syntastic -- inline syntax errors
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 let g:syntastic_mode_map = { 'mode': 'active',
                                     \ 'active_filetypes': [],
@@ -429,8 +453,7 @@ map <leader>td <Plug>TaskList
 " use ~ instead of ! for changes
 let g:signify_sign_change = '~'
 "
-" " only check git and hg (faster by not checking for the 8 other supported
-" VCS)
+" only check git (faster by not checking for the 9 other supported VCS)
 let g:signify_vcs_list = [ 'git' ]
 
 "vim-ipython

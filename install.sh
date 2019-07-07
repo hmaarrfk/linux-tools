@@ -8,3 +8,7 @@ stow "$@" vim
 stow "$@" bash
 stow "$@" git
 stow "$@" xonsh
+
+echo "You probably want to install Gogh to setup the color scheme of gnome-temrminal"
+echo "https://github.com/Mayccoll/Gogh"
+echo "Currently, As of writing, the these gruvbox-dark is cool"
