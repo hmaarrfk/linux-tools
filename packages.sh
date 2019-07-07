@@ -66,6 +66,7 @@ if [[ ! `which intel-undervolt` ]]; then
     echo "/configure  --enable-systemd"
     echo "make"
     echo "sudo make install"
+    echo "I found that on my i7-7700HQ i could undervolt by 110 mV"
 fi
 
 # if [ -f /etc/debian_version ]; then
