@@ -1,6 +1,3 @@
-[submodule "vim/bundle/yankstack"]
-	path = vim/.vim/bundle/yankstack
-	url = git://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "vim/bundle/tomorrow-night-vim"]
 	path = vim/bundle/tomorrow-night-vim
 	url = git://github.com/mnoble/tomorrow-night-vim.git
