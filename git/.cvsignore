@@ -1,3 +1,5 @@
+# atom ropeproject
+.ropeproject
 # Ingore tags
 tags
 *.aux
@@ -14,3 +16,14 @@ tags
 *.toc
 *~
 *.pyc
+
+*.o
+*.o.cmd
+*.ko.cmd
+.cache.mk
+.tmp_versions
+*.o.ur-safe
+modules.order
+Module.symvers
+*.ko
+*.mod.c

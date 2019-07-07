@@ -1,6 +1,7 @@
 $PATH = ["$HOME/miniconda3/bin"] + $PATH
 $PATH = ["$HOME/.cargo/bin"] + $PATH
 $PATH = ["/usr/lib/ccache"] + $PATH
+
 xontrib load xonda
 
 $PROMPT_FIELDS['env_name'] = lambda: "("+$CONDA_DEFAULT_ENV+")" if 'CONDA_DEFAULT_ENV' in __xonsh__.env else None
@@ -22,6 +23,7 @@ with open('/etc/hostname', 'r') as f:
 import warnings
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 
+# https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 stty -ixon
 
 
