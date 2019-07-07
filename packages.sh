@@ -16,6 +16,7 @@ list_of_packages=" \
     gnome-tweaks \
     \
     baobab \
+    lm-sensors \
     \
     texlive-full \
     texstudio \
