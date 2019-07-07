@@ -1,17 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Install required software in fedora
 
 list_of_packages=" \
     git \
     gitg \
+    \
     gparted \
-    htop \
     xclip \
     stow \
+    \
+    htop \
+    vim \
+    vim-gtk \
+    gnome-tweaks \
+    \
+    baobab \
+    \
     texlive-full \
     texstudio \
     biber \
+    \
     inkscape \
     gimp \
     kicad \
@@ -33,16 +42,29 @@ done
 packages_to_install="$(echo -e "${packages_to_install}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
 if [[ $packages_to_install == "" ]]; then
+    echo "----------------------------------------------------------------"
     echo "Installed all suggested packages!!!"
 else
+    echo "----------------------------------------------------------------"
     echo "Need to install $packages_to_install"
     echo "To install packages, use the command"
     echo "pkcon install $packages_to_install"
 fi
 
 if [[ ! `atom --version` ]]; then
+    echo "----------------------------------------------------------------"
     echo "You should install atom manually at"
     echo "https://atom.io"
+fi
+
+if [[ ! `which intel-undervolt` ]]; then
+    echo "----------------------------------------------------------------"
+    echo "You likely want to undervolt your processor"
+    echo "https://wiki.archlinux.org/index.php/Undervolting_CPU#intel-undervolt"
+    echo "https://github.com/kitsunyan/intel-undervolt";
+    echo "/configure  --enable-systemd"
+    echo "make"
+    echo "sudo make install"
 fi
 
 # if [ -f /etc/debian_version ]; then
