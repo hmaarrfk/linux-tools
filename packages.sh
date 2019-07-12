@@ -52,7 +52,7 @@ else
     echo "pkcon install $packages_to_install"
 fi
 
-if [[ ! `atom --version` ]]; then
+if [[ ! `which atom` ]]; then
     echo "----------------------------------------------------------------"
     echo "You should install atom manually at"
     echo "https://atom.io"
