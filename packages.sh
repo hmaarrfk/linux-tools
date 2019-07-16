@@ -14,6 +14,7 @@ list_of_packages=" \
     vim \
     vim-gtk \
     gnome-tweaks \
+    openssh-server \
     \
     baobab \
     lm-sensors \
@@ -68,6 +69,16 @@ if [[ ! `which intel-undervolt` ]]; then
     echo "sudo make install"
     echo "I found that on my i7-7700HQ i could undervolt by 110 mV"
 fi
+
+# TODO:
+# Check for user belonging to groups
+#  * plugdev
+#  * docker
+#  * sambashare
+
+# Firefox settings for dark theme
+# https://askubuntu.com/questions/936716/disable-system-style-for-firefox-form-input-elements?rq=1
+
 
 # if [ -f /etc/debian_version ]; then
 #     echo "sudo apt install $packages_to_install"
