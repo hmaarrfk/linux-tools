@@ -80,7 +80,9 @@ set autoread          "auto-reload modified files (with no local changes)
 set undolevels=1024   " lots of undo (default 1000)
 set history=1024      " lost of history (default 20)
 set mouse=a           " enable mouse
-set ttymouse=xterm    " Set this to the name of your terminal that supports mouse codes.
+if !has('nvim')
+    set ttymouse=xterm    " Set this to the name of your terminal that supports mouse codes.
+endif
 set bs=1              " set the backspace behaviour to normal ?????
 "set hidden            " allo un-saved buffers in background
 set nohidden
