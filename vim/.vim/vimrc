@@ -30,7 +30,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'godlygeek/tabular'
 
     " IDE like
-    Plug 'vim-syntastic/syntastic'
+    " Plug 'vim-syntastic/syntastic'
+    Plug 'dense-analysis/ale'
 
     " Colors
     Plug 'vim-scripts/darkspectrum'
