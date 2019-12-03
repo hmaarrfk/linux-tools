@@ -133,7 +133,7 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
+# <<< conda init <<<
 
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
@@ -147,3 +147,4 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
+export PATH="/usr/lib/ccache:$PATH"
