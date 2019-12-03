@@ -33,7 +33,7 @@
 [core]
   excludesfile = ~/.cvsignore
   autocrlf = input
-  editor = nvim
+  editor = vim
   filemode = false
 
 [diff "texdiff"]
@@ -43,7 +43,7 @@
   default = simple
 
 [mergetool "vimdiff3"]
-  cmd = nvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [merge]
   tool = vimdiff3
 [filter "lfs"]

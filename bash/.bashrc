@@ -135,3 +135,15 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
+
+
+if [ `hostname` == "mark-xps" ] && [ $TERM == linux ]; then
+    /bin/setfont /usr/share/consolefonts/Lat2-Terminus32x16.psf.gz
+fi
+
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+

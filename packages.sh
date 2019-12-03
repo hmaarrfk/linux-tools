@@ -28,6 +28,8 @@ list_of_packages=" \
     kicad \
     fish \
     calibre \
+    \
+    dos2unix
 "
 
 packages_installed=`pkcon resolve $list_of_packages`
