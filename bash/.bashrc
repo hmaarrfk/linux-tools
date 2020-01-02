@@ -134,6 +134,7 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+conda activate mcam_dev
 
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
@@ -143,7 +144,6 @@ if [ `hostname` == "mark-xps" ] && [ $TERM == linux ]; then
 fi
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
