@@ -7,3 +7,6 @@
 [submodule "emacs/lisp/emacs-color-theme-solarized"]
 	path = emacs/lisp/emacs-color-theme-solarized
 	url = git@github.com:sellout/emacs-color-theme-solarized.git
+[submodule "bash/.bash-git-prompt"]
+	path = bash/.bash-git-prompt
+	url = git@github.com:magicmonty/bash-git-prompt.git
