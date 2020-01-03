@@ -11,6 +11,8 @@ stow "$@" git
 stow "$@" xonsh
 stow "$@" alacritty
 
+
+set +ex
 echo "You probably want to install Gogh to setup the color scheme of gnome-temrminal"
 echo "https://github.com/Mayccoll/Gogh"
 echo "Currently, As of writing, the these gruvbox-dark is cool"
@@ -22,3 +24,16 @@ echo "https://extensions.gnome.org/extension/1465/desktop-icons/"
 echo "https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/"
 echo "https://extensions.gnome.org/extension/1112/screenshot-tool/"
 echo "https://extensions.gnome.org/extension/120/system-monitor/"
+
+
+echo "You probably want the following in your ./config/pip/pip.conf file"
+cat << EOF
+[global]
+no-build-isolation = False
+disable-pip-version-check = True
+
+[install]
+no-dependencies = yes
+verbose = yes
+EOF
+
