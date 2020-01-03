@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -ex
 
 # Super simple script, It will not overwrite any config files that already
 # exist on your system
