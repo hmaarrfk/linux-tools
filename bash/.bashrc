@@ -120,21 +120,6 @@ fi
 [ -f /home/mark/.travis/travis.sh ] && source /home/mark/.travis/travis.sh
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$($HOME'/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
-        . $HOME/miniconda3/etc/profile.d/conda.sh
-    else
-        export PATH=$HOME/miniconda3/bin:$PATH
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-conda activate mcam_dev
 
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
@@ -148,3 +133,22 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
 fi
 
 export PATH="/usr/lib/ccache:$PATH"
+
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mark/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mark/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mark/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+conda activate mcam_dev
+# <<< conda initialize <<<
+
