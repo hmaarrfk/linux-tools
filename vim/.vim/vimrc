@@ -2,6 +2,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+    Plug 'vim/killersheep'
 
     " File management
     Plug 'scrooloose/nerdtree'
