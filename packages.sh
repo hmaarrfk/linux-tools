@@ -71,7 +71,7 @@ if [[ ! `which intel-undervolt` ]]; then
     echo "sudo make install"
     echo "I found that on my i7-7700HQ i could undervolt by 110 mV with 2400MHz RAM"
     echo "With 2666 MHz ram, I was able to do it by 100 mV"
-    echo "sudo python undervolt.py --core -110 --cache -110 --gpu -110 --uncore -75 --analogio -75"
+    echo "sudo python3 undervolt.py --core -110 --cache -110 --gpu -110 --uncore -75 --analogio -75"
 fi
 
 # TODO:
